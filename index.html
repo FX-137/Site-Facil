@@ -32,15 +32,21 @@
                         dark: '#0f0f0f',
                         darker: '#050505',
                     },
-                    // Animação personalizada para mover a mão para o lado
+                    // Animações personalizadas
                     keyframes: {
                         'slide-right': {
                             '0%, 100%': { transform: 'translateX(0)' },
                             '50%': { transform: 'translateX(10px)' },
+                        },
+                        // Novo Pulse: Mais rápido (1s) e menos opaco (0.85) para não escurecer tanto
+                        'pulse-bright': {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.85' },
                         }
                     },
                     animation: {
                         'slide-right': 'slide-right 1.5s ease-in-out infinite',
+                        'pulse-bright': 'pulse-bright 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                     }
                 }
             }
@@ -153,7 +159,10 @@
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-5xl font-bold mb-4">A Solução: <span class="text-primary">Simplicidade</span></h2>
-                    <p class="text-xl text-gray-600 dark:text-gray-400">A Força da Simplicidade (HTML Puro)</p>
+                    <!-- HTML Puro quebrando linha no mobile -->
+                    <p class="text-xl text-gray-600 dark:text-gray-400">
+                        A Força da Simplicidade <span class="block md:inline">(HTML Puro)</span>
+                    </p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-8">
@@ -296,7 +305,8 @@
 
                 <!-- Indicador de Rolagem (Visível apenas no Mobile) - VERSÃO DESTACADA -->
                 <div class="md:hidden flex justify-center mb-6">
-                    <div class="flex items-center gap-3 bg-gradient-to-r from-primary to-violet-700 text-white py-3 px-6 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.5)] animate-pulse border border-white/20">
+                    <!-- Usando animate-pulse-bright em vez de animate-pulse -->
+                    <div class="flex items-center gap-3 bg-gradient-to-r from-primary to-violet-700 text-white py-3 px-6 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.5)] animate-pulse-bright border border-white/20">
                         <div class="animate-slide-right">
                             <i class="fa-solid fa-hand-pointer text-xl rotate-180"></i>
                         </div>
@@ -398,9 +408,9 @@
                     <div class="md:w-2/3">
                         <h2 class="text-3xl font-bold mb-4 text-primary">Sobre o Site Fácil</h2>
                         <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Olá! Sou Fernando de Castro Leonhardt.</h3>
-                        <!-- Texto Justificado -->
+                        <!-- Texto Justificado Corrigido -->
                         <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-justify">
-                            Minha jornada profissional me mostrou que o universo digital é frequentemente obscurecido por custos altos, complexidade desnecessária e promessas enganosas. Vi muitos pequenos comerciantes desistirem de ter uma presença online profissional.
+                            Minha jornada profissional me mostrou que o universo digital é muitas vezes obscurecido por custos altos, complexidade desnecessária e promessas enganosas. Vi muitos pequenos comerciantes desistirem de ter uma presença online profissional.
                         </p>
                         <!-- Texto Justificado -->
                         <p class="text-gray-600 dark:text-gray-400 mb-4 leading-relaxed text-justify">
