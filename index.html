@@ -306,13 +306,21 @@
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="mb-12 text-center">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">Simulação de Custos Anuais</h2>
-                    <p class="text-gray-400 mb-6">Estimativa média para manter um site básico por 1 ano.</p>
+                    <p class="text-gray-400 mb-8">Estimativa média para manter um site básico por 1 ano.</p>
                     
-                    <!-- Botão de Chamada para o Guia -->
-                    <button onclick="openModal('guide-modal')" class="inline-flex items-center gap-2 text-primary hover:text-white border border-primary hover:bg-primary px-6 py-2 rounded-full transition-all text-sm font-bold shadow-[0_0_15px_rgba(139,92,246,0.2)] hover:shadow-[0_0_20px_rgba(139,92,246,0.6)]">
-                        <i class="fa-regular fa-circle-question text-lg"></i>
-                        Entenda os Termos (Guia para Leigos)
-                    </button>
+                    <!-- Botão de Chamada para o Guia - NOVO DESIGN -->
+                    <div class="flex justify-center">
+                        <button onclick="openModal('guide-modal')" class="group relative flex items-center gap-4 bg-gray-800 hover:bg-primary border-2 border-primary text-white py-3 px-8 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.6)] transform hover:-translate-y-1">
+                            <div class="bg-white text-primary rounded-full w-8 h-8 flex items-center justify-center animate-pulse">
+                                <i class="fa-solid fa-question text-lg font-bold"></i>
+                            </div>
+                            <div class="text-left">
+                                <span class="block text-xs text-gray-400 group-hover:text-violet-200 uppercase tracking-wider font-bold">Dúvidas com os termos?</span>
+                                <span class="block text-lg font-bold">Clique Aqui: Guia para Leigos</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- Indicador de Rolagem (Visível apenas no Mobile) - VERSÃO DESTACADA -->
