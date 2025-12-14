@@ -675,7 +675,7 @@
 
     <!-- Modal Guia Rápido (NOVO) -->
     <div id="guide-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden" onclick="closeModal('guide-modal', event)">
-        <div class="modal-content bg-white dark:bg-darker w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative p-8">
+        <div class="modal-content bg-white dark:bg-darker w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative p-4 md:p-8">
             <button onclick="closeModalButton('guide-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl z-10 p-2">
                 <i class="fa-solid fa-times"></i>
             </button>
@@ -743,46 +743,46 @@
                         <i class="fa-solid fa-circle-question text-primary"></i> FAQ: Os Termos Essenciais do Mundo Digital
                     </h3>
                     
-                    <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+                    <div class="rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
                         <table class="w-full text-left text-sm">
-                            <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
+                            <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hidden md:table-header-group">
                                 <tr>
                                     <th class="p-4 w-1/4 border-b dark:border-gray-700">Tópico</th>
                                     <th class="p-4 border-b dark:border-gray-700">Explicação Simples e Vantagem do Site Fácil</th>
                                 </tr>
                             </thead>
-                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-darker">
-                                <tr>
-                                    <td class="p-4 font-bold text-primary">O que é um Site Estático?</td>
-                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-darker block md:table-row-group">
+                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
+                                    <td class="p-3 md:p-4 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">O que é um Site Estático?</td>
+                                    <td class="p-3 md:p-4 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
                                         É um site <strong>pré-construído</strong> (como uma foto ou um folheto digital) que não precisa consultar banco de dados toda vez que alguém visita.<br>
                                         <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> É o tipo de site mais rápido e seguro que existe.
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="p-4 font-bold text-primary">O que é Hospedagem?</td>
-                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
+                                    <td class="p-3 md:p-4 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">O que é Hospedagem?</td>
+                                    <td class="p-3 md:p-4 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
                                         É o "aluguel" do computador onde seu site mora. Sites estáticos exigem quase zero energia.<br>
                                         <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> Usamos infraestrutura mundial (Cloudflare/GitHub) gratuita e ilimitada para esse tipo de projeto.
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="p-4 font-bold text-primary">O que é Domínio?</td>
-                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
+                                    <td class="p-3 md:p-4 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">O que é Domínio?</td>
+                                    <td class="p-3 md:p-4 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
                                         É seu endereço (Ex: suaempresa.com.br). É o único custo fixo que pode existir.<br>
                                         <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> Para cardápios, o domínio (.pages.dev) é grátis. Para sites institucionais, custa apenas R$ 40,00/ano (Registro.br).
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="p-4 font-bold text-primary">O que é Manutenção?</td>
-                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
+                                    <td class="p-3 md:p-4 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">O que é Manutenção?</td>
+                                    <td class="p-3 md:p-4 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
                                         Manter o software seguro. No WordPress, exige atualizações constantes de plugins e temas.<br>
                                         <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> O Site Fácil não tem software para atualizar, eliminando custos de webmaster.
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="p-4 font-bold text-primary">Diferença para WordPress?</td>
-                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
+                                    <td class="p-3 md:p-4 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">Diferença para WordPress?</td>
+                                    <td class="p-3 md:p-4 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
                                         <strong>WordPress:</strong> Foco em sistemas complexos (lojas grandes, login), mas caro e lento.<br>
                                         <strong>Site Fácil:</strong> Foco em performance, segurança e custo zero. Ideal para sites institucionais, portfólios e cardápios.
                                     </td>
