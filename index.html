@@ -229,7 +229,7 @@
             </div>
         </section>
 
-        <!-- NOVA SEÇÃO: Galeria de Comprovantes (Carrossel) -->
+        <!-- Galeria de Comprovantes (Carrossel) -->
         <section class="py-16 bg-white dark:bg-darker">
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="text-center mb-8">
@@ -292,7 +292,131 @@
             </div>
         </section>
 
-        <!-- A Solução (HTML Puro) -->
+        <!-- Simulação de Custos (Tabela) - MOVIDO PARA CIMA -->
+        <section id="custos" class="py-20 bg-black text-white">
+            <div class="container mx-auto px-4 max-w-5xl">
+                <div class="mb-12 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">Simulação de Custos Anuais</h2>
+                    <p class="text-gray-400">Estimativa média para manter um site básico por 1 ano.</p>
+                </div>
+
+                <!-- Indicador de Rolagem (Visível apenas no Mobile) - VERSÃO DESTACADA -->
+                <div class="md:hidden flex justify-center mb-6">
+                    <!-- Usando animate-pulse-bright em vez de animate-pulse -->
+                    <div class="flex items-center gap-3 bg-gradient-to-r from-primary to-violet-700 text-white py-3 px-6 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.5)] animate-pulse-bright border border-white/20">
+                        <div class="animate-slide-right">
+                            <i class="fa-solid fa-hand-pointer text-xl rotate-180"></i>
+                        </div>
+                        <span class="font-bold text-sm uppercase tracking-wide">Arraste para o lado</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto rounded-lg shadow-2xl border border-gray-800">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-gray-900 border-b border-gray-700 text-gray-300">
+                                <th class="p-4 md:p-6 font-semibold w-1/3">Item de Custo</th>
+                                <th class="p-4 md:p-6 font-bold text-primary w-1/3 bg-gray-800/50 border-t-4 border-t-primary">Site HTML/CSS Estático</th>
+                                <th class="p-4 md:p-6 font-semibold w-1/3 text-gray-500">Site WordPress Básico</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800">
+                             <tr class="hover:bg-gray-900/50 transition">
+                                <td class="p-4 md:p-6 font-bold text-white">Criação / Setup (1x)</td>
+                                <td class="p-4 md:p-6 text-primary font-bold">A partir de R$ 450,00*</td>
+                                <td class="p-4 md:p-6">R$ 2.500,00 (Média)</td>
+                            </tr>
+                            <tr class="hover:bg-gray-900/50 transition">
+                                <td class="p-4 md:p-6">Hospedagem (Obrigatória)</td>
+                                <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(GitHub Pages)</span></td>
+                                <td class="p-4 md:p-6">R$ 1.440,00 <span class="text-xs font-normal text-gray-500 block">(R$ 120/mês média)</span></td>
+                            </tr>
+                            <tr class="hover:bg-gray-900/50 transition">
+                                <td class="p-4 md:p-6">Manutenção Técnica</td>
+                                <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(Site não "quebra")</span></td>
+                                <td class="p-4 md:p-6">R$ 600,00 <span class="text-xs font-normal text-gray-500 block">(R$ 50/mês básico)</span></td>
+                            </tr>
+                            <tr class="bg-gray-800 font-bold border-t-2 border-gray-600">
+                                <td class="p-4 md:p-6 uppercase text-gray-300">SUBTOTAL (Sem Domínio)</td>
+                                <td class="p-4 md:p-6 text-primary text-xl">R$ 450,00</td>
+                                <td class="p-4 md:p-6 text-white text-xl">R$ 4.540,00</td>
+                            </tr>
+                            <tr class="hover:bg-gray-900/50 transition">
+                                <td class="p-4 md:p-6 font-bold text-white text-sm uppercase tracking-wider pl-4 md:pl-8 border-l-4 border-primary">Opção Com Domínio Próprio:</td>
+                                <td class="p-4 md:p-6"></td>
+                                <td class="p-4 md:p-6"></td>
+                            </tr>
+                             <tr class="hover:bg-gray-900/50 transition">
+                                <td class="p-4 md:p-6 pl-4 md:pl-8">Domínio Anual (.com.br)</td>
+                                <td class="p-4 md:p-6 text-white font-medium">R$ 40,00</td>
+                                <td class="p-4 md:p-6 text-white">R$ 40,00</td>
+                            </tr>
+                            <tr class="hover:bg-gray-900/50 transition">
+                                <td class="p-4 md:p-6 pl-4 md:pl-8">Taxa Configuração DNS</td>
+                                <td class="p-4 md:p-6 font-medium text-yellow-400">R$ 50,00 <span class="text-xs font-normal text-gray-400 block">(Taxa única)**</span></td>
+                                <td class="p-4 md:p-6 font-medium text-yellow-400">R$ 100,00 <span class="text-xs font-normal text-gray-400 block">(Taxa mínima)**</span></td>
+                            </tr>
+                            <tr class="bg-primary/20 font-bold text-lg border-t-2 border-primary">
+                                <td class="p-4 md:p-6 text-white">TOTAL GERAL (1º ANO)</td>
+                                <td class="p-4 md:p-6 text-primary text-2xl">R$ 540,00</td>
+                                <td class="p-4 md:p-6 text-red-400 text-2xl">~ R$ 4.680,00</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-sm text-gray-500 italic" colspan="3">
+                                    <p class="mb-1">*O valor de R$ 450,00 é promocional e sujeito a análise. Valores de mercado baseados em orçamentos de 2025.</p>
+                                    <p>** Taxas de configuração e valores de domínio sujeitos à alterações sem aviso prévio.</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Explicação Domínio -->
+                <div class="mt-10 max-w-4xl mx-auto bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800">
+                    <h3 class="text-2xl font-bold mb-4 text-primary">Domínio Próprio ou Custo Zero? Entenda a Diferença</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Seu site funcionará perfeitamente com qualquer uma das opções. A escolha depende da necessidade de credibilidade do seu negócio:
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-900/30 p-3 rounded-lg text-green-400 mt-1">
+                                <i class="fa-solid fa-leaf text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-green-400 mb-1">Para Custo Zero Total (Cardápios e Menus)</h4>
+                                <p class="text-gray-400 text-sm md:text-base text-justify">
+                                    Recomendamos usar o domínio gratuito da Cloudflare (seunome.pages.dev). Ele é rápido, seguro e ideal para negócios que focam em máxima economia. Para um cardápio online, a URL funciona com autoridade e não exige custo anual.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-blue-900/30 p-3 rounded-lg text-blue-400 mt-1">
+                                <i class="fa-solid fa-briefcase text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white mb-1">Para Máxima Credibilidade (Sites Institucionais)</h4>
+                                <p class="text-gray-400 text-sm md:text-base text-justify">
+                                    Para Advogados, Consultores e Empresas que precisam transmitir total confiança, o domínio próprio (.com.br ou .com) é recomendado. Nesses casos, o custo anual é de apenas R$ 40,00 (pago ao Registro.br).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg">
+                        <p class="text-yellow-200 text-sm md:text-base text-justify">
+                            <strong class="font-bold text-yellow-400 block mb-1"><i class="fa-solid fa-circle-exclamation mr-2"></i>Atenção:</strong>
+                            Optando pelo domínio próprio, será aplicada uma taxa única de R$ 50,00 para a Configuração de DNS. Este é o serviço técnico que garante que seu domínio funcione corretamente na infraestrutura da Cloudflare.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- A Solução (HTML Puro) - AGORA APÓS TABELA DE PREÇOS -->
         <section class="py-20 bg-white dark:bg-darker">
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="text-center mb-16">
@@ -430,130 +554,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Simulação de Custos (Tabela) -->
-        <section id="custos" class="py-20 bg-black text-white">
-            <div class="container mx-auto px-4 max-w-5xl">
-                <div class="mb-12 text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">Simulação de Custos Anuais</h2>
-                    <p class="text-gray-400">Estimativa média para manter um site básico por 1 ano.</p>
-                </div>
-
-                <!-- Indicador de Rolagem (Visível apenas no Mobile) - VERSÃO DESTACADA -->
-                <div class="md:hidden flex justify-center mb-6">
-                    <!-- Usando animate-pulse-bright em vez de animate-pulse -->
-                    <div class="flex items-center gap-3 bg-gradient-to-r from-primary to-violet-700 text-white py-3 px-6 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.5)] animate-pulse-bright border border-white/20">
-                        <div class="animate-slide-right">
-                            <i class="fa-solid fa-hand-pointer text-xl rotate-180"></i>
-                        </div>
-                        <span class="font-bold text-sm uppercase tracking-wide">Arraste para o lado</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </div>
-                </div>
-
-                <div class="overflow-x-auto rounded-lg shadow-2xl border border-gray-800">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-gray-900 border-b border-gray-700 text-gray-300">
-                                <th class="p-4 md:p-6 font-semibold w-1/3">Item de Custo</th>
-                                <th class="p-4 md:p-6 font-bold text-primary w-1/3 bg-gray-800/50 border-t-4 border-t-primary">Site HTML/CSS Estático</th>
-                                <th class="p-4 md:p-6 font-semibold w-1/3 text-gray-500">Site WordPress Básico</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-800">
-                             <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6 font-bold text-white">Criação / Setup (1x)</td>
-                                <td class="p-4 md:p-6 text-primary font-bold">A partir de R$ 450,00*</td>
-                                <td class="p-4 md:p-6">R$ 2.500,00 (Média)</td>
-                            </tr>
-                            <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6">Hospedagem (Obrigatória)</td>
-                                <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(GitHub Pages)</span></td>
-                                <td class="p-4 md:p-6">R$ 1.440,00 <span class="text-xs font-normal text-gray-500 block">(R$ 120/mês média)</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6">Manutenção Técnica</td>
-                                <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(Site não "quebra")</span></td>
-                                <td class="p-4 md:p-6">R$ 600,00 <span class="text-xs font-normal text-gray-500 block">(R$ 50/mês básico)</span></td>
-                            </tr>
-                            <tr class="bg-gray-800 font-bold border-t-2 border-gray-600">
-                                <td class="p-4 md:p-6 uppercase text-gray-300">SUBTOTAL (Sem Domínio)</td>
-                                <td class="p-4 md:p-6 text-primary text-xl">R$ 450,00</td>
-                                <td class="p-4 md:p-6 text-white text-xl">R$ 4.540,00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6 font-bold text-white text-sm uppercase tracking-wider pl-4 md:pl-8 border-l-4 border-primary">Opção Com Domínio Próprio:</td>
-                                <td class="p-4 md:p-6"></td>
-                                <td class="p-4 md:p-6"></td>
-                            </tr>
-                             <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6 pl-4 md:pl-8">Domínio Anual (.com.br)</td>
-                                <td class="p-4 md:p-6 text-white font-medium">R$ 40,00</td>
-                                <td class="p-4 md:p-6 text-white">R$ 40,00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6 pl-4 md:pl-8">Taxa Configuração DNS</td>
-                                <td class="p-4 md:p-6 font-medium text-yellow-400">R$ 50,00 <span class="text-xs font-normal text-gray-400 block">(Taxa única)**</span></td>
-                                <td class="p-4 md:p-6 font-medium text-yellow-400">R$ 100,00 <span class="text-xs font-normal text-gray-400 block">(Taxa mínima)**</span></td>
-                            </tr>
-                            <tr class="bg-primary/20 font-bold text-lg border-t-2 border-primary">
-                                <td class="p-4 md:p-6 text-white">TOTAL GERAL (1º ANO)</td>
-                                <td class="p-4 md:p-6 text-primary text-2xl">R$ 540,00</td>
-                                <td class="p-4 md:p-6 text-red-400 text-2xl">~ R$ 4.680,00</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 text-sm text-gray-500 italic" colspan="3">
-                                    <p class="mb-1">*O valor de R$ 450,00 é promocional e sujeito a análise. Valores de mercado baseados em orçamentos de 2025.</p>
-                                    <p>** Taxas de configuração e valores de domínio sujeitos à alterações sem aviso prévio.</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <!-- Explicação Domínio -->
-                <div class="mt-10 max-w-4xl mx-auto bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800">
-                    <h3 class="text-2xl font-bold mb-4 text-primary">Domínio Próprio ou Custo Zero? Entenda a Diferença</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Seu site funcionará perfeitamente com qualquer uma das opções. A escolha depende da necessidade de credibilidade do seu negócio:
-                    </p>
-
-                    <div class="space-y-6">
-                        <div class="flex items-start gap-4">
-                            <div class="bg-green-900/30 p-3 rounded-lg text-green-400 mt-1">
-                                <i class="fa-solid fa-leaf text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-green-400 mb-1">Para Custo Zero Total (Cardápios e Menus)</h4>
-                                <p class="text-gray-400 text-sm md:text-base text-justify">
-                                    Recomendamos usar o domínio gratuito da Cloudflare (seunome.pages.dev). Ele é rápido, seguro e ideal para negócios que focam em máxima economia. Para um cardápio online, a URL funciona com autoridade e não exige custo anual.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-start gap-4">
-                            <div class="bg-blue-900/30 p-3 rounded-lg text-blue-400 mt-1">
-                                <i class="fa-solid fa-briefcase text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-white mb-1">Para Máxima Credibilidade (Sites Institucionais)</h4>
-                                <p class="text-gray-400 text-sm md:text-base text-justify">
-                                    Para Advogados, Consultores e Empresas que precisam transmitir total confiança, o domínio próprio (.com.br ou .com) é recomendado. Nesses casos, o custo anual é de apenas R$ 40,00 (pago ao Registro.br).
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mt-8 bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg">
-                        <p class="text-yellow-200 text-sm md:text-base text-justify">
-                            <strong class="font-bold text-yellow-400 block mb-1"><i class="fa-solid fa-circle-exclamation mr-2"></i>Atenção:</strong>
-                            Optando pelo domínio próprio, será aplicada uma taxa única de R$ 50,00 para a Configuração de DNS. Este é o serviço técnico que garante que seu domínio funcione corretamente na infraestrutura da Cloudflare.
-                        </p>
-                    </div>
-                </div>
-
             </div>
         </section>
 
