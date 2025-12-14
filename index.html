@@ -308,17 +308,23 @@
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">Simulação de Custos Anuais</h2>
                     <p class="text-gray-400 mb-8">Estimativa média para manter um site básico por 1 ano.</p>
                     
-                    <!-- Botão de Chamada para o Guia - NOVO DESIGN -->
+                    <!-- Botão de Chamada para o Guia - NOVO DESIGN CENTRALIZADO -->
                     <div class="flex justify-center">
-                        <button onclick="openModal('guide-modal')" class="group relative flex items-center gap-4 bg-gray-800 hover:bg-primary border-2 border-primary text-white py-3 px-8 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.6)] transform hover:-translate-y-1">
-                            <div class="bg-white text-primary rounded-full w-8 h-8 flex items-center justify-center animate-pulse">
-                                <i class="fa-solid fa-question text-lg font-bold"></i>
+                        <button onclick="openModal('guide-modal')" class="group relative flex flex-col items-center justify-center gap-2 bg-gray-800 hover:bg-gray-800/80 border-2 border-primary text-white py-6 px-12 rounded-2xl transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.6)] transform hover:-translate-y-1 w-full md:w-auto">
+                            <!-- Texto Topo -->
+                            <span class="text-xs text-gray-400 uppercase tracking-widest font-semibold group-hover:text-primary transition-colors">
+                                Dúvidas com os termos?
+                            </span>
+                            
+                            <!-- Texto Meio -->
+                            <span class="text-2xl font-extrabold tracking-tight">
+                                Guia para Leigos
+                            </span>
+                            
+                            <!-- Botão Ação (Pulsando) -->
+                            <div class="mt-2 bg-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse group-hover:animate-none group-hover:bg-white group-hover:text-primary transition-all flex items-center">
+                                <i class="fa-solid fa-hand-pointer mr-2"></i> Clique Aqui
                             </div>
-                            <div class="text-left">
-                                <span class="block text-xs text-gray-400 group-hover:text-violet-200 uppercase tracking-wider font-bold">Dúvidas com os termos?</span>
-                                <span class="block text-lg font-bold">Clique Aqui: Guia para Leigos</span>
-                            </div>
-                            <i class="fa-solid fa-chevron-right opacity-0 group-hover:opacity-100 transition-opacity -ml-2 group-hover:ml-0"></i>
                         </button>
                     </div>
                 </div>
