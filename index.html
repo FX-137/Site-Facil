@@ -79,6 +79,19 @@
             opacity: 1;
             pointer-events: auto;
         }
+
+        /* Estilos do Carrossel */
+        .carousel-slide {
+            display: none;
+        }
+        .carousel-slide.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 dark:bg-darker dark:text-gray-100 font-sans antialiased">
@@ -149,6 +162,132 @@
                             <i class="fa-solid fa-sack-dollar text-9xl text-gray-700"></i>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- A Realidade do Mercado -->
+        <section class="py-20 bg-gray-100 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <div class="text-center mb-12">
+                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Transparência Total</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mt-2 text-gray-900 dark:text-white">A Realidade dos Preços em 2025</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-3xl mx-auto">
+                        Analisamos o mercado de agências e plataformas WordPress para mostrar onde seu dinheiro realmente vai.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 items-start">
+                    <!-- O Mercado (Esquerda) -->
+                    <div class="bg-white dark:bg-darker p-8 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 relative opacity-90">
+                        <div class="absolute top-0 right-0 bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">MÉDIA DE MERCADO</div>
+                        <h3 class="text-2xl font-bold mb-6 text-gray-600 dark:text-gray-400 flex items-center gap-3">
+                            <i class="fa-solid fa-building text-gray-400"></i> Agências Tradicionais
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
+                                <p class="text-sm text-gray-500 uppercase font-bold mb-1">Criação de Site Institucional</p>
+                                <p class="text-2xl font-bold text-gray-800 dark:text-gray-200">R$ 1.500,00 a R$ 5.000,00</p>
+                                <p class="text-xs text-gray-500 mt-1">Valores praticados para sites WordPress comuns.</p>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
+                                <p class="text-sm text-gray-500 uppercase font-bold mb-1">Mensalidade / Manutenção</p>
+                                <p class="text-2xl font-bold text-red-500">R$ 50,00 a R$ 200,00 <span class="text-sm text-gray-500">/mês</span></p>
+                                <p class="text-xs text-gray-500 mt-1">Hospedagem, plugins e "taxa de suporte".</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Site Fácil (Direita - Destaque) -->
+                    <div class="bg-white dark:bg-darker p-8 rounded-2xl shadow-xl border-2 border-primary relative transform md:-translate-y-4">
+                        <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">OFERTA ESPECIAL</div>
+                        <h3 class="text-3xl font-bold mb-6 text-primary flex items-center gap-3">
+                            <i class="fa-solid fa-bolt"></i> Site Fácil
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="bg-violet-50 dark:bg-primary/10 p-4 rounded-lg border border-primary/20">
+                                <p class="text-sm text-primary uppercase font-bold mb-1">Investimento Único (Criação)</p>
+                                <div class="flex items-baseline gap-2">
+                                    <span class="text-sm text-gray-500">A partir de</span>
+                                    <span class="text-4xl font-extrabold text-gray-900 dark:text-white">R$ 450,00*</span>
+                                </div>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 italic">*Valor inicial. Sujeito a análise do projeto e alteração sem aviso prévio.</p>
+                            </div>
+                            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-500/20">
+                                <p class="text-sm text-green-700 dark:text-green-400 uppercase font-bold mb-1">Mensalidade de Hospedagem</p>
+                                <p class="text-4xl font-extrabold text-green-600 dark:text-green-500">R$ 0,00</p>
+                                <p class="text-xs text-green-700 dark:text-green-400 mt-1">Sua hospedagem é gratuita e vitalícia.</p>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <a href="https://wa.me/5551992496479?text=Olá%20Fernando.%20Vi%20a%20promoção%20de%20R$450%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="block w-full text-center bg-primary hover:bg-violet-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-primary/40">
+                                Quero Aproveitar Essa Oportunidade
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOVA SEÇÃO: Galeria de Comprovantes (Carrossel) -->
+        <section class="py-16 bg-white dark:bg-darker">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="text-center mb-8">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-2">Veja com seus próprios olhos</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Prints reais de orçamentos e tabelas de preços encontradas online em 2025.</p>
+                </div>
+
+                <!-- Container do Carrossel -->
+                <div class="relative bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-inner p-4 md:p-8">
+                    
+                    <!-- Slides -->
+                    <div id="carousel-container" class="relative overflow-hidden aspect-video md:aspect-[16/9] flex items-center justify-center bg-gray-200 dark:bg-gray-900 rounded-lg cursor-zoom-in" onclick="openImageModal()">
+                        
+                        <!-- SLIDE 1 -->
+                        <div class="carousel-slide active w-full h-full">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEju4KBS_AhrcggGLYYNIwpiwAMNJcXlSWi4XQ8zZY87PLgMfiQMIe6dK8lE7mxLK2DVzpefiTmr996tfKHk9xg4hCqa5Wbn7M87a5Hatk7gAGjG32IpwpYjf_4ZquawjfpeZE_3PZ5JA6mL6O2y37c2N0t6VOplRy0MvTA7Jzg7JVaVFoEFsVRq80WiHF0/s1600/UpSites.png" alt="Print de Preços 1 - UpSites" class="w-full h-full object-contain">
+                        </div>
+
+                        <!-- SLIDE 2 -->
+                        <div class="carousel-slide w-full h-full">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9sOpdp4EXwP3AZxxm-rFjCu8MLam_QFNv_dU9tEctm0Rpl7QRXUeow1H3E4kZiEtc8nL-8C_IinveZ68N14Yonmr6kdSVWDJ3eJueqCLC-1wf9sce-jezhx3JER5twe_eG22mGt2IV4zUf1kQzSeK8ocTuNp_6hGfntWjF4TjWUEB4jEf_Odmjo_TR9M/s1600/HGX.png" alt="Print de Preços 2 - HGX" class="w-full h-full object-contain">
+                        </div>
+
+                        <!-- SLIDE 3 -->
+                        <div class="carousel-slide w-full h-full">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiih39m8BuTE_NXVKvbYCiejJJn85RbjKNwhK8cBYGKtZ1YbJXDpzrRlN4HaR6bbZ4QrV5aoe3Bu16zAZQpRrjtp-H28m_B4g1nHCw-X1rsqAw0iX_ce_5GuOfKxBJKl62stG0FadKU1otwFd_zk3R1oO2gdIviojaR1h_9peuP953t8iCvjIyeIE9JqmU/s1600/DigitalZ.png" alt="Print de Preços 3 - DigitalZ" class="w-full h-full object-contain">
+                        </div>
+
+                        <!-- SLIDE 4 -->
+                        <div class="carousel-slide w-full h-full">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmkfLuPL1dH-fzJj36ZPIq5E8Hajh0ZUsMl_qaBZZ2bwGeFy7SJR_XJ42ztIaLnz85XYTy3VAP9-JYzvriXrUTgsrG23UCPFhOa6xExeP-F8ej3AkIkowFPXL37AM8nNEAQORBq_jzH7MyzXNfq0DzWGJE3ahBvEn_oOhy4t-VpqwAstif0RXZ3mF5Aq4/s1600/PNZ.png" alt="Print de Preços 4 - PNZ" class="w-full h-full object-contain">
+                        </div>
+
+                        <!-- SLIDE 5 -->
+                        <div class="carousel-slide w-full h-full">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyPSMhhiOjlY6B9wPiL_JnyR2tZvhPPlgEWdg1wNoH2Nv1VwYqnRl1TidycxCNVfDwjFNkEQUYQAyaFhbkyWVX1ugsuHpW5n4lK7E3qrgxjrRMGbUUyIA86gYNX9QuZJB38LuM5jUfCkcFcl7V9jasMLTSi6CCLXk5BvfQPXWuhX90FPfrQtx2syA-H6E/s1600/Eco%20Web%20Design.png" alt="Print de Preços 5 - Eco Web Design" class="w-full h-full object-contain">
+                        </div>
+                        
+                    </div>
+
+                    <!-- Controles -->
+                    <button onclick="prevSlide()" class="absolute top-1/2 left-4 md:left-8 transform -translate-y-1/2 bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-primary p-3 rounded-full shadow-lg transition-all focus:outline-none">
+                        <i class="fa-solid fa-chevron-left text-xl"></i>
+                    </button>
+                    <button onclick="nextSlide()" class="absolute top-1/2 right-4 md:right-8 transform -translate-y-1/2 bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-primary p-3 rounded-full shadow-lg transition-all focus:outline-none">
+                        <i class="fa-solid fa-chevron-right text-xl"></i>
+                    </button>
+
+                    <!-- Indicadores (Bolinhas) -->
+                    <div class="flex justify-center gap-2 mt-4" id="carousel-indicators">
+                        <button onclick="goToSlide(0)" class="w-3 h-3 rounded-full bg-primary transition-all"></button>
+                        <button onclick="goToSlide(1)" class="w-3 h-3 rounded-full bg-gray-400 hover:bg-primary transition-all"></button>
+                        <button onclick="goToSlide(2)" class="w-3 h-3 rounded-full bg-gray-400 hover:bg-primary transition-all"></button>
+                        <button onclick="goToSlide(3)" class="w-3 h-3 rounded-full bg-gray-400 hover:bg-primary transition-all"></button>
+                        <button onclick="goToSlide(4)" class="w-3 h-3 rounded-full bg-gray-400 hover:bg-primary transition-all"></button>
+                    </div>
+
+                    <p class="text-center text-xs text-gray-500 mt-4"><i class="fa-solid fa-magnifying-glass-plus"></i> Clique na imagem para ampliar</p>
                 </div>
             </div>
         </section>
@@ -299,7 +438,7 @@
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="mb-12 text-center">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">Simulação de Custos Anuais</h2>
-                    <p class="text-gray-400">Estimativa média para manter um site básico por 1 ano (excluindo desenvolvimento inicial).</p>
+                    <p class="text-gray-400">Estimativa média para manter um site básico por 1 ano.</p>
                 </div>
 
                 <!-- Indicador de Rolagem (Visível apenas no Mobile) - VERSÃO DESTACADA -->
@@ -318,45 +457,103 @@
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="bg-gray-900 border-b border-gray-700 text-gray-300">
-                                <th class="p-4 md:p-6 font-semibold w-1/3">Custo Anual (Aproximado)</th>
+                                <th class="p-4 md:p-6 font-semibold w-1/3">Item de Custo</th>
                                 <th class="p-4 md:p-6 font-bold text-primary w-1/3 bg-gray-800/50 border-t-4 border-t-primary">Site HTML/CSS Estático</th>
                                 <th class="p-4 md:p-6 font-semibold w-1/3 text-gray-500">Site WordPress Básico</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-800">
-                            <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6">Domínio (.com.br)</td>
-                                <td class="p-4 md:p-6 text-primary font-medium">R$ 40,00</td>
-                                <td class="p-4 md:p-6">R$ 40,00</td>
+                             <tr class="hover:bg-gray-900/50 transition">
+                                <td class="p-4 md:p-6 font-bold text-white">Criação / Setup (1x)</td>
+                                <td class="p-4 md:p-6 text-primary font-bold">A partir de R$ 450,00*</td>
+                                <td class="p-4 md:p-6">R$ 2.500,00 (Média)</td>
                             </tr>
                             <tr class="hover:bg-gray-900/50 transition">
                                 <td class="p-4 md:p-6">Hospedagem (Obrigatória)</td>
                                 <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(GitHub Pages)</span></td>
-                                <td class="p-4 md:p-6">R$ 120,00 <span class="text-xs font-normal text-gray-500 block">(Plano promocional)</span></td>
+                                <td class="p-4 md:p-6">R$ 1.440,00 <span class="text-xs font-normal text-gray-500 block">(R$ 120/mês média)</span></td>
                             </tr>
                             <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6">Temas/Plugins Essenciais</td>
-                                <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00</td>
-                                <td class="p-4 md:p-6">R$ 250,00 <span class="text-xs font-normal text-gray-500 block">(SEO/Segurança básicos)</span></td>
+                                <td class="p-4 md:p-6">Manutenção Técnica</td>
+                                <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(Site não "quebra")</span></td>
+                                <td class="p-4 md:p-6">R$ 600,00 <span class="text-xs font-normal text-gray-500 block">(R$ 50/mês básico)</span></td>
+                            </tr>
+                            <tr class="bg-gray-800 font-bold border-t-2 border-gray-600">
+                                <td class="p-4 md:p-6 uppercase text-gray-300">SUBTOTAL (Sem Domínio)</td>
+                                <td class="p-4 md:p-6 text-primary text-xl">R$ 450,00</td>
+                                <td class="p-4 md:p-6 text-white text-xl">R$ 4.540,00</td>
                             </tr>
                             <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6">Manutenção/Atualização</td>
-                                <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(Mínima intervenção)</span></td>
-                                <td class="p-4 md:p-6">R$ 300,00 <span class="text-xs font-normal text-gray-500 block">(Tempo gasto com conflitos)</span></td>
+                                <td class="p-4 md:p-6 font-bold text-white text-sm uppercase tracking-wider pl-4 md:pl-8 border-l-4 border-primary">Opção Com Domínio Próprio:</td>
+                                <td class="p-4 md:p-6"></td>
+                                <td class="p-4 md:p-6"></td>
                             </tr>
-                            <tr class="bg-primary/20 font-bold text-lg">
-                                <td class="p-4 md:p-6 text-white">TOTAL ANUAL</td>
-                                <td class="p-4 md:p-6 text-primary text-2xl">R$ 40,00</td>
-                                <td class="p-4 md:p-6 text-red-400 text-2xl">R$ 815,00</td>
+                             <tr class="hover:bg-gray-900/50 transition">
+                                <td class="p-4 md:p-6 pl-4 md:pl-8">Domínio Anual (.com.br)</td>
+                                <td class="p-4 md:p-6 text-white font-medium">R$ 40,00</td>
+                                <td class="p-4 md:p-6 text-white">R$ 40,00</td>
+                            </tr>
+                            <tr class="hover:bg-gray-900/50 transition">
+                                <td class="p-4 md:p-6 pl-4 md:pl-8">Taxa Configuração DNS</td>
+                                <td class="p-4 md:p-6 font-medium text-yellow-400">R$ 50,00 <span class="text-xs font-normal text-gray-400 block">(Taxa única)**</span></td>
+                                <td class="p-4 md:p-6 font-medium text-yellow-400">R$ 100,00 <span class="text-xs font-normal text-gray-400 block">(Taxa mínima)**</span></td>
+                            </tr>
+                            <tr class="bg-primary/20 font-bold text-lg border-t-2 border-primary">
+                                <td class="p-4 md:p-6 text-white">TOTAL GERAL (1º ANO)</td>
+                                <td class="p-4 md:p-6 text-primary text-2xl">R$ 540,00</td>
+                                <td class="p-4 md:p-6 text-red-400 text-2xl">~ R$ 4.680,00</td>
                             </tr>
                             <tr>
                                 <td class="p-4 text-sm text-gray-500 italic" colspan="3">
-                                    Nota: Custos recorrentes do WordPress tendem a aumentar após o período promocional de hospedagem.
+                                    <p class="mb-1">*O valor de R$ 450,00 é promocional e sujeito a análise. Valores de mercado baseados em orçamentos de 2025.</p>
+                                    <p>** Taxas de configuração e valores de domínio sujeitos à alterações sem aviso prévio.</p>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <!-- Explicação Domínio -->
+                <div class="mt-10 max-w-4xl mx-auto bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800">
+                    <h3 class="text-2xl font-bold mb-4 text-primary">Domínio Próprio ou Custo Zero? Entenda a Diferença</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Seu site funcionará perfeitamente com qualquer uma das opções. A escolha depende da necessidade de credibilidade do seu negócio:
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-900/30 p-3 rounded-lg text-green-400 mt-1">
+                                <i class="fa-solid fa-leaf text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-green-400 mb-1">Para Custo Zero Total (Cardápios e Menus)</h4>
+                                <p class="text-gray-400 text-sm md:text-base text-justify">
+                                    Recomendamos usar o domínio gratuito da Cloudflare (seunome.pages.dev). Ele é rápido, seguro e ideal para negócios que focam em máxima economia. Para um cardápio online, a URL funciona com autoridade e não exige custo anual.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="bg-blue-900/30 p-3 rounded-lg text-blue-400 mt-1">
+                                <i class="fa-solid fa-briefcase text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white mb-1">Para Máxima Credibilidade (Sites Institucionais)</h4>
+                                <p class="text-gray-400 text-sm md:text-base text-justify">
+                                    Para Advogados, Consultores e Empresas que precisam transmitir total confiança, o domínio próprio (.com.br ou .com) é recomendado. Nesses casos, o custo anual é de apenas R$ 40,00 (pago ao Registro.br).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg">
+                        <p class="text-yellow-200 text-sm md:text-base text-justify">
+                            <strong class="font-bold text-yellow-400 block mb-1"><i class="fa-solid fa-circle-exclamation mr-2"></i>Atenção:</strong>
+                            Optando pelo domínio próprio, será aplicada uma taxa única de R$ 50,00 para a Configuração de DNS. Este é o serviço técnico que garante que seu domínio funcione corretamente na infraestrutura da Cloudflare.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -422,7 +619,7 @@
                         
                         <!-- Botão WhatsApp Movido para cá -->
                         <div class="mt-8 flex justify-center md:justify-start">
-                             <a href="https://wa.me/5551992496479?text=Olá%20Fernando.%20Gostaria%20de%20saber%20mais%20sobre%20criação%20de%20sites." target="_blank" class="bg-green-600 hover:bg-green-700 text-white text-base font-bold py-3 px-8 rounded-full transition-colors flex items-center gap-3 shadow-lg hover:shadow-green-900/50 transform hover:scale-105 duration-200">
+                             <a href="https://wa.me/5551992496479?text=Olá%20Fernando.%20Vi%20a%20promoção%20de%20R$450%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="bg-green-600 hover:bg-green-700 text-white text-base font-bold py-3 px-8 rounded-full transition-colors flex items-center gap-3 shadow-lg hover:shadow-green-900/50 transform hover:scale-105 duration-200">
                                 <i class="fa-brands fa-whatsapp text-2xl"></i> Falar no WhatsApp
                              </a>
                         </div>
@@ -533,6 +730,16 @@
         </div>
     </div>
 
+    <!-- Modal de Zoom para Imagem (NOVO) -->
+    <div id="image-modal" class="modal fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md hidden" onclick="closeImageModal()">
+        <button class="absolute top-4 right-4 text-white hover:text-primary text-4xl z-10 p-2">
+            <i class="fa-solid fa-times"></i>
+        </button>
+        <div class="w-full h-full flex items-center justify-center p-2">
+            <img id="image-modal-content" src="" alt="Zoom" class="max-w-full max-h-full object-contain rounded shadow-2xl">
+        </div>
+    </div>
+
     <!-- Scripts de Funcionalidade -->
     <script>
         // Função de rolagem segura
@@ -571,31 +778,85 @@
             }
         });
 
-        // Lógica dos Modais
+        // Lógica dos Modais de Texto
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
             modal.classList.remove('hidden');
-            // Pequeno delay para permitir a transição CSS funcionar
-            setTimeout(() => {
-                modal.classList.add('active');
-            }, 10);
-            document.body.style.overflow = 'hidden'; // Impede rolagem do fundo
+            setTimeout(() => { modal.classList.add('active'); }, 10);
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModalButton(modalId) {
             const modal = document.getElementById(modalId);
             modal.classList.remove('active');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300); // Espera a animação terminar
-            document.body.style.overflow = 'auto'; // Restaura rolagem
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+            document.body.style.overflow = 'auto';
         }
 
         function closeModal(modalId, event) {
-            // Fecha apenas se clicar no fundo escuro (não no conteúdo)
             if (event.target.id === modalId) {
                 closeModalButton(modalId);
             }
+        }
+
+        /* --- Lógica do Carrossel e Zoom (NOVO) --- */
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('#carousel-indicators button');
+
+        function updateCarousel() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlideIndex) {
+                    slide.classList.add('active');
+                }
+            });
+            indicators.forEach((indicator, index) => {
+                indicator.classList.remove('bg-primary');
+                indicator.classList.add('bg-gray-400');
+                if (index === currentSlideIndex) {
+                    indicator.classList.remove('bg-gray-400');
+                    indicator.classList.add('bg-primary');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+            updateCarousel();
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            updateCarousel();
+        }
+
+        // Inicializar Carrossel
+        updateCarousel();
+
+        // Modal de Zoom da Imagem
+        function openImageModal() {
+            const activeSlide = document.querySelector('.carousel-slide.active img');
+            if (activeSlide) {
+                const modal = document.getElementById('image-modal');
+                const modalImg = document.getElementById('image-modal-content');
+                modalImg.src = activeSlide.src;
+                modal.classList.remove('hidden');
+                setTimeout(() => { modal.classList.add('active'); }, 10);
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.remove('active');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+            document.body.style.overflow = 'auto';
         }
     </script>
 </body>
