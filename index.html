@@ -99,18 +99,27 @@
     <!-- Header / Navbar -->
     <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-darker/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
         <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <!-- Logo -->
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-bolt text-primary text-2xl"></i>
                 <span class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">Site Fácil</span>
             </div>
             
-            <!-- Botão Toggle Switch Novo -->
-            <button id="theme-toggle" class="relative w-14 h-8 bg-gray-200 dark:bg-primary rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-darker shadow-inner" aria-label="Alternar Tema">
-                <div class="absolute top-1 left-1 bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 dark:translate-x-6 flex items-center justify-center">
-                    <i class="fas fa-sun text-yellow-500 text-xs dark:hidden"></i>
-                    <i class="fas fa-moon text-primary text-xs hidden dark:block"></i>
-                </div>
-            </button>
+            <!-- Ações Direita (Guia + Toggle) -->
+            <div class="flex items-center gap-4">
+                <!-- Botão Guia Rápido (Desktop) -->
+                <button onclick="openModal('guide-modal')" class="hidden md:flex items-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                    <i class="fa-solid fa-book-open"></i> Guia Rápido
+                </button>
+
+                <!-- Botão Toggle Switch Novo -->
+                <button id="theme-toggle" class="relative w-14 h-8 bg-gray-200 dark:bg-primary rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-darker shadow-inner" aria-label="Alternar Tema">
+                    <div class="absolute top-1 left-1 bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 dark:translate-x-6 flex items-center justify-center">
+                        <i class="fas fa-sun text-yellow-500 text-xs dark:hidden"></i>
+                        <i class="fas fa-moon text-primary text-xs hidden dark:block"></i>
+                    </div>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -297,7 +306,13 @@
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="mb-12 text-center">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">Simulação de Custos Anuais</h2>
-                    <p class="text-gray-400">Estimativa média para manter um site básico por 1 ano.</p>
+                    <p class="text-gray-400 mb-6">Estimativa média para manter um site básico por 1 ano.</p>
+                    
+                    <!-- Botão de Chamada para o Guia -->
+                    <button onclick="openModal('guide-modal')" class="inline-flex items-center gap-2 text-primary hover:text-white border border-primary hover:bg-primary px-6 py-2 rounded-full transition-all text-sm font-bold shadow-[0_0_15px_rgba(139,92,246,0.2)] hover:shadow-[0_0_20px_rgba(139,92,246,0.6)]">
+                        <i class="fa-regular fa-circle-question text-lg"></i>
+                        Entenda os Termos (Guia para Leigos)
+                    </button>
                 </div>
 
                 <!-- Indicador de Rolagem (Visível apenas no Mobile) - VERSÃO DESTACADA -->
@@ -639,7 +654,8 @@
                     </span>
                     <p class="text-gray-500 text-sm mt-2">Simplicidade, performance e baixo custo.</p>
                 </div>
-                <div class="flex gap-6 text-sm">
+                <div class="flex gap-6 text-sm flex-wrap justify-center md:justify-end">
+                    <button onclick="openModal('guide-modal')" class="text-gray-400 hover:text-primary transition-colors">Guia Rápido (FAQ)</button>
                     <button onclick="openModal('terms-modal')" class="text-gray-400 hover:text-primary transition-colors">Termos de Uso</button>
                     <button onclick="openModal('privacy-modal')" class="text-gray-400 hover:text-primary transition-colors">Política de Privacidade</button>
                 </div>
@@ -656,6 +672,134 @@
     </footer>
 
     <!-- Botão Flutuante removido daqui -->
+
+    <!-- Modal Guia Rápido (NOVO) -->
+    <div id="guide-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden" onclick="closeModal('guide-modal', event)">
+        <div class="modal-content bg-white dark:bg-darker w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative p-8">
+            <button onclick="closeModalButton('guide-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl z-10 p-2">
+                <i class="fa-solid fa-times"></i>
+            </button>
+            <div class="prose dark:prose-invert max-w-none">
+                <!-- Cabeçalho do Guia -->
+                <div class="mb-8 border-b border-gray-200 dark:border-gray-800 pb-6">
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4 text-center md:text-left flex items-center gap-3">
+                        <i class="fa-solid fa-book-open"></i> Guia Rápido: Por que Nossos Sites Eliminam as Mensalidades
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 text-justify">
+                        Este guia foi feito para quem não é técnico. Explicamos de forma simples os termos essenciais para que você saiba exatamente o que está contratando e como o modelo <strong>Site Fácil</strong> garante que você tenha um <strong>custo operacional anual próximo a zero</strong>.
+                    </p>
+                </div>
+
+                <!-- Seção 1: O Trabalho -->
+                <div class="mb-10">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2 text-gray-800 dark:text-gray-100">
+                        <i class="fa-solid fa-tools text-primary"></i> O Trabalho de Criar um Site: O Que Você Está Contratando?
+                    </h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4 text-justify">
+                        A criação de um site envolve a transformação de uma ideia em um produto digital funcional. Nosso trabalho foca em eliminar a complexidade para garantir seu baixo custo final.
+                    </p>
+                    
+                    <div class="space-y-6 pl-4 border-l-2 border-gray-200 dark:border-gray-800 ml-2">
+                        <!-- Passo 1 -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-1">1. O Rascunho e Design</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-justify">
+                                Definimos a aparência do seu site, o fluxo de navegação e as cores, garantindo que ele transmita credibilidade e seja fácil de usar em qualquer tela (computador ou celular).
+                            </p>
+                        </div>
+                        
+                        <!-- Passo 2 -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-2">2. A Construção (Codificação) <span class="text-xs font-normal text-gray-500">- Onde a mágica acontece</span></h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-red-50 dark:bg-red-900/10 p-4 rounded-lg border border-red-100 dark:border-red-900/30">
+                                    <p class="font-bold text-red-600 dark:text-red-400 text-sm mb-1"><i class="fa-solid fa-xmark mr-1"></i> Trabalho Comum (WordPress)</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400 text-justify">
+                                        Envolve instalar um sistema complexo (CMS), conectar Banco de Dados e configurar dezenas de plugins. Gera alta complexidade e necessidade constante de manutenção.
+                                    </p>
+                                </div>
+                                <div class="bg-green-50 dark:bg-green-900/10 p-4 rounded-lg border border-green-100 dark:border-green-900/30">
+                                    <p class="font-bold text-green-600 dark:text-green-400 text-sm mb-1"><i class="fa-solid fa-check mr-1"></i> Trabalho Site Fácil (HTML Puro)</p>
+                                    <p class="text-xs text-gray-600 dark:text-gray-400 text-justify">
+                                        Construímos o site diretamente no código. É mais rápido, limpo e seguro. Eliminamos softwares extras e banco de dados. O site não "envelhece".
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Passo 3 -->
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-1">3. Publicação (Deploy)</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 text-justify">
+                                É o processo final de colocar o site no ar. Graças à infraestrutura da Cloudflare, fazemos isso de forma instantânea e totalmente gratuita.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Seção 2: FAQ Tabela -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-gray-800 dark:text-gray-100">
+                        <i class="fa-solid fa-circle-question text-primary"></i> FAQ: Os Termos Essenciais do Mundo Digital
+                    </h3>
+                    
+                    <div class="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+                        <table class="w-full text-left text-sm">
+                            <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
+                                <tr>
+                                    <th class="p-4 w-1/4 border-b dark:border-gray-700">Tópico</th>
+                                    <th class="p-4 border-b dark:border-gray-700">Explicação Simples e Vantagem do Site Fácil</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-darker">
+                                <tr>
+                                    <td class="p-4 font-bold text-primary">O que é um Site Estático?</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                                        É um site <strong>pré-construído</strong> (como uma foto ou um folheto digital) que não precisa consultar banco de dados toda vez que alguém visita.<br>
+                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> É o tipo de site mais rápido e seguro que existe.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-bold text-primary">O que é Hospedagem?</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                                        É o "aluguel" do computador onde seu site mora. Sites estáticos exigem quase zero energia.<br>
+                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> Usamos infraestrutura mundial (Cloudflare/GitHub) gratuita e ilimitada para esse tipo de projeto.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-bold text-primary">O que é Domínio?</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                                        É seu endereço (Ex: suaempresa.com.br). É o único custo fixo que pode existir.<br>
+                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> Para cardápios, o domínio (.pages.dev) é grátis. Para sites institucionais, custa apenas R$ 40,00/ano (Registro.br).
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-bold text-primary">O que é Manutenção?</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                                        Manter o software seguro. No WordPress, exige atualizações constantes de plugins e temas.<br>
+                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> O Site Fácil não tem software para atualizar, eliminando custos de webmaster.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p-4 font-bold text-primary">Diferença para WordPress?</td>
+                                    <td class="p-4 text-gray-600 dark:text-gray-400 text-justify">
+                                        <strong>WordPress:</strong> Foco em sistemas complexos (lojas grandes, login), mas caro e lento.<br>
+                                        <strong>Site Fácil:</strong> Foco em performance, segurança e custo zero. Ideal para sites institucionais, portfólios e cardápios.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 text-center sticky bottom-0 bg-white dark:bg-darker pb-2">
+                <button onclick="closeModalButton('guide-modal')" class="bg-primary hover:bg-violet-700 text-white font-bold py-3 px-8 rounded-lg transition-all shadow-lg">
+                    Entendi, Voltar para o Site
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal Termos de Uso -->
     <div id="terms-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden" onclick="closeModal('terms-modal', event)">
