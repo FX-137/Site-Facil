@@ -6,15 +6,15 @@
     <title>Site Fácil</title>
     <meta name="description" content="Tenha seu site no ar de maneira rápida, segura e barata com HTML Puro.">
     
-    <!-- Favicon Gerado Automaticamente (Raio Robusto Violeta com Fundo Branco) -->
+    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23ffffff%22/><path d=%22M60 10 L20 60 L50 60 L40 95 L80 45 L50 45 Z%22 fill=%22%238b5cf6%22 stroke=%22%238b5cf6%22 stroke-width=%225%22 stroke-linejoin=%22round%22/></svg>">
     
-    <!-- Fontes Google -->
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome para Ícones -->
+    <!-- Ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Tailwind CSS -->
@@ -24,25 +24,17 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        primary: '#8b5cf6', // Violeta
+                        primary: '#8b5cf6',
                         dark: '#0f0f0f',
                         darker: '#050505',
+                        customDark: '#281d37',
+                        cloudflare: '#F38020'
                     },
-                    // Animações personalizadas
                     keyframes: {
-                        'slide-right': {
-                            '0%, 100%': { transform: 'translateX(0)' },
-                            '50%': { transform: 'translateX(10px)' },
-                        },
-                        // Novo Pulse: Mais rápido (1s) e menos opaco (0.85) para não escurecer tanto
-                        'pulse-bright': {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0.85' },
-                        }
+                        'slide-right': { '0%, 100%': { transform: 'translateX(0)' }, '50%': { transform: 'translateX(10px)' } },
+                        'pulse-bright': { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.85' } }
                     },
                     animation: {
                         'slide-right': 'slide-right 1.5s ease-in-out infinite',
@@ -54,66 +46,31 @@
     </script>
 
     <style>
-        /* Ocultar scrollbar em modais mas permitir rolagem */
-        .modal-content::-webkit-scrollbar {
-            width: 8px;
-        }
-        .modal-content::-webkit-scrollbar-track {
-            background: #f1f1f1; 
-        }
-        .modal-content::-webkit-scrollbar-thumb {
-            background: #888; 
-            border-radius: 4px;
-        }
-        .modal-content::-webkit-scrollbar-thumb:hover {
-            background: #555; 
-        }
-
-        /* Animação suave para modais */
-        .modal {
-            transition: opacity 0.3s ease-in-out;
-            opacity: 0;
-            pointer-events: none;
-        }
-        .modal.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* Estilos do Carrossel */
-        .carousel-slide {
-            display: none;
-        }
-        .carousel-slide.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
+        .modal-content::-webkit-scrollbar { width: 8px; }
+        .modal-content::-webkit-scrollbar-track { background: #f1f1f1; }
+        .modal-content::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        .modal-content::-webkit-scrollbar-thumb:hover { background: #555; }
+        .modal { transition: opacity 0.3s ease-in-out; opacity: 0; pointer-events: none; }
+        .modal.active { opacity: 1; pointer-events: auto; }
+        .carousel-slide { display: none; }
+        .carousel-slide.active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
 <body class="bg-white text-gray-900 dark:bg-darker dark:text-gray-100 font-sans antialiased">
 
-    <!-- Header / Navbar -->
+    <!-- Header -->
     <header class="fixed w-full top-0 z-50 bg-white/90 dark:bg-darker/90 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
         <div class="container mx-auto px-4 h-16 flex items-center justify-between">
-            <!-- Logo -->
             <div class="flex items-center gap-2">
                 <i class="fa-solid fa-bolt text-primary text-2xl"></i>
                 <span class="text-xl font-bold tracking-tight text-gray-900 dark:text-white">Site Fácil</span>
             </div>
-            
-            <!-- Ações Direita (Guia + Toggle) -->
             <div class="flex items-center gap-4">
-                <!-- Botão Guia Rápido (Desktop) -->
-                <button onclick="openModal('guide-modal')" class="hidden md:flex items-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                <button onclick="openModal('guide-modal')" class="hidden md:flex items-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
                     <i class="fa-solid fa-book-open"></i> Guia Rápido
                 </button>
-
-                <!-- Botão Toggle Switch Novo -->
-                <button id="theme-toggle" class="relative w-14 h-8 bg-gray-200 dark:bg-primary rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-darker shadow-inner" aria-label="Alternar Tema">
+                <button id="theme-toggle" class="relative w-14 h-8 bg-gray-200 dark:bg-primary rounded-full transition-colors duration-300 shadow-inner" aria-label="Alternar Tema">
                     <div class="absolute top-1 left-1 bg-white w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 dark:translate-x-6 flex items-center justify-center">
                         <i class="fas fa-sun text-yellow-500 text-xs dark:hidden"></i>
                         <i class="fas fa-moon text-primary text-xs hidden dark:block"></i>
@@ -125,459 +82,350 @@
 
     <main class="pt-16">
         <!-- Hero Section -->
-        <section class="py-20 lg:py-28 bg-white dark:bg-darker">
-            <div class="container mx-auto px-4 text-center max-w-4xl">
-                <!-- Título Novo -->
+        <section class="py-20 lg:py-28 bg-white dark:bg-darker text-center">
+            <div class="container mx-auto px-4 max-w-4xl">
                 <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight text-gray-900 dark:text-white">
                     Sites Que Funcionam: <span class="text-primary">Rápido, Seguro e com Custo Quase Zero.</span>
                 </h1>
-                <!-- Subtítulo Novo - Texto Atualizado e Centralizado (Removido text-justify) -->
-                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed text-center">
+                <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                     Descubra como pequenos empreendedores eliminaram mensalidades de hospedagem, e os problemas do WordPress com o poder do Site Estático em HTML.
                 </p>
-                <!-- Texto Justificado no Box -->
-                <div class="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm inline-block w-full text-justify md:text-center">
-                    <p class="font-medium text-gray-700 dark:text-gray-200">
-                        <span class="text-primary font-bold">Minha Missão:</span> Fazer com que você tenha seu site no ar de uma maneira rápida, segura e incrivelmente barata, com custos operacionais próximos de zero.
-                    </p>
-                </div>
-                <div class="mt-10">
-                    <!-- Botão corrigido: Hover mais suave (violet-600) e mais rápido (duration-200) -->
-                    <button onclick="scrollToCustos()" class="bg-primary hover:bg-violet-600 text-white font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-primary/30 transition-all duration-200 transform hover:-translate-y-1 inline-block cursor-pointer">
+                <div class="mt-10 text-center">
+                    <button onclick="scrollToCustos()" class="bg-primary hover:bg-violet-600 text-white font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-200 transform hover:-translate-y-1 inline-block cursor-pointer">
                         Ver Comparação de Custos
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- O Mito do Site Barato (Seção Escura) -->
+        <!-- O Mito do Site Barato -->
         <section class="py-20 bg-black text-white">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <div class="flex flex-col md:flex-row items-center gap-8">
-                        <div class="flex-1">
-                            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">O Mito do Site "Barato"</h2>
-                            <!-- Texto Justificado e Atualizado -->
-                            <p class="text-gray-300 text-lg mb-4 text-justify">
-                                Empresas de hospedagem anunciam <strong class="text-white">R$ 9,90/mês</strong>, mas isso é uma isca: você só alcança esse valor pagando vários anos à vista. Você nunca pagará R$ 9,90 mensalmente, e ainda enfrentará renovações caras, além de ter que arcar com plugins, segurança e atualizações constantes...
-                            </p>
-                            <!-- Texto Justificado Ajustado -->
-                            <p class="text-gray-300 text-lg border-l-4 border-red-500 pl-4 text-justify">
-                                Seu site se torna lento, vulnerável e exige constantes correções para corrigir conflitos e falhas de segurança.
-                            </p>
-                        </div>
-                        <div class="w-full md:w-1/3 flex justify-center">
-                            <!-- Ícone substituído por Saco de Dinheiro e cor mais clara -->
-                            <i class="fa-solid fa-sack-dollar text-9xl text-gray-700"></i>
-                        </div>
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="flex-1">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">O Mito do Site "Barato"</h2>
+                        <p class="text-gray-300 text-lg mb-4 text-justify">
+                            Empresas de hospedagem anunciam <strong class="text-white">R$ 9,90/mês</strong>, mas isso é uma isca: você só alcança esse valor pagando vários anos à vista. Você nunca pagará R$ 9,90 mensalmente, e ainda enfrentará renovações caras, além de ter que arcar com plugins, segurança e atualizações constantes...
+                        </p>
+                        <p class="text-gray-300 text-lg border-l-4 border-red-500 pl-4 text-justify">
+                            Seu site se torna lento, vulnerável e exige constantes correções para corrigir conflitos e falhas de segurança.
+                        </p>
+                    </div>
+                    <div class="w-full md:w-1/3 flex justify-center">
+                        <i class="fa-solid fa-sack-dollar text-9xl text-gray-700"></i>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- A Realidade do Mercado -->
-        <section class="py-20 bg-gray-100 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
-            <div class="container mx-auto px-4 max-w-6xl">
-                <div class="text-center mb-12">
-                    <span class="text-primary font-bold uppercase tracking-wider text-sm">Transparência Total</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mt-2 text-gray-900 dark:text-white">A Realidade dos Preços em 2025</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4 max-w-3xl mx-auto">
-                        Analisamos o mercado de agências e plataformas WordPress para mostrar onde seu dinheiro realmente vai.
-                    </p>
-                </div>
+        <!-- A Realidade dos Preços em 2025 -->
+        <section class="py-20 bg-[#0a0b10] text-white overflow-hidden">
+            <div class="container mx-auto px-4 max-w-5xl text-center">
+                <p class="text-[10px] uppercase tracking-[0.3em] text-gray-500 mb-2 font-bold">Transparência Total</p>
+                <h2 class="text-4xl md:text-5xl font-black mb-4 tracking-tighter">A Realidade dos Preços em 2025</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-16 text-lg font-medium">Analisamos o mercado de agências e plataformas WordPress para mostrar onde seu dinheiro realmente vai.</p>
 
-                <div class="grid md:grid-cols-2 gap-8 items-start">
-                    <!-- O Mercado (Esquerda) -->
-                    <div class="bg-white dark:bg-darker p-8 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-800 relative opacity-90">
-                        <div class="absolute top-0 right-0 bg-gray-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">MÉDIA DE MERCADO</div>
-                        <h3 class="text-2xl font-bold mb-6 text-gray-600 dark:text-gray-400 flex items-center gap-3">
-                            <i class="fa-solid fa-building text-gray-400"></i> Agências Tradicionais
-                        </h3>
-                        <div class="space-y-6">
-                            <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
-                                <p class="text-sm text-gray-500 uppercase font-bold mb-1">Criação de Site Institucional</p>
-                                <p class="text-2xl font-bold text-gray-800 dark:text-gray-200">R$ 1.500,00 a R$ 5.000,00</p>
-                                <p class="text-xs text-gray-500 mt-1">Valores praticados para sites WordPress comuns.</p>
-                            </div>
-                            <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg">
-                                <p class="text-sm text-gray-500 uppercase font-bold mb-1">Mensalidade / Manutenção</p>
-                                <p class="text-2xl font-bold text-red-500">R$ 50,00 a R$ 200,00 <span class="text-sm text-gray-500">/mês</span></p>
-                                <p class="text-xs text-gray-500 mt-1">Hospedagem, plugins e "taxa de suporte".</p>
-                            </div>
+                <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                    <!-- Card: Agências Tradicionais -->
+                    <div class="relative bg-[#0f1016] p-8 rounded-[2rem] border border-gray-800 text-left flex flex-col shadow-2xl">
+                        <div class="absolute -top-3 right-8 bg-[#30323a] text-white text-[10px] font-black px-4 py-1.5 rounded-md uppercase tracking-widest">Média de Mercado</div>
+                        <div class="flex items-center gap-3 mb-10">
+                            <i class="fa-solid fa-building text-2xl text-gray-600"></i>
+                            <h3 class="text-2xl font-black text-gray-300 tracking-tight">Agências Tradicionais</h3>
                         </div>
-                    </div>
-
-                    <!-- Site Fácil (Direita - Destaque) -->
-                    <div class="bg-white dark:bg-darker p-8 rounded-2xl shadow-xl border-2 border-primary relative transform md:-translate-y-4">
-                        <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">OFERTA ESPECIAL</div>
-                        <h3 class="text-3xl font-bold mb-6 text-primary flex items-center gap-3">
-                            <i class="fa-solid fa-bolt"></i> Site Fácil
-                        </h3>
                         <div class="space-y-6">
-                            <div class="bg-violet-50 dark:bg-primary/10 p-4 rounded-lg border border-primary/20">
-                                <p class="text-sm text-primary uppercase font-bold mb-1">Investimento Único (Criação)</p>
-                                <div class="flex items-baseline gap-2">
-                                    <span class="text-sm text-gray-500">A partir de</span>
-                                    <span class="text-4xl font-extrabold text-gray-900 dark:text-white">R$ 450,00*</span>
+                            <div class="bg-[#15171f] p-6 rounded-2xl border border-gray-800/50">
+                                <p class="text-[10px] font-black text-gray-500 uppercase mb-2 tracking-wider">Criação de Site Institucional</p>
+                                <p class="text-2xl md:text-3xl font-black text-white mb-1">R$ 1.500,00 a R$ 5.000,00</p>
+                                <p class="text-[11px] text-gray-600">Valores praticados para sites WordPress comuns.</p>
+                            </div>
+                            <div class="bg-[#15171f] p-6 rounded-2xl border border-gray-800/50">
+                                <p class="text-[10px] font-black text-gray-500 uppercase mb-2 tracking-wider">Mensalidade / Manutenção</p>
+                                <div class="flex items-baseline gap-1 mb-1">
+                                    <p class="text-2xl md:text-3xl font-black text-[#e54b4b]">R$ 50,00 a R$ 200,00</p>
+                                    <span class="text-gray-600 text-sm font-bold">/mês</span>
                                 </div>
-                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-2 italic">*Valor inicial. Sujeito a análise do projeto e alteração sem aviso prévio.</p>
-                            </div>
-                            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-500/20">
-                                <p class="text-sm text-green-700 dark:text-green-400 uppercase font-bold mb-1">Mensalidade de Hospedagem</p>
-                                <p class="text-4xl font-extrabold text-green-600 dark:text-green-500">R$ 0,00</p>
-                                <p class="text-xs text-green-700 dark:text-green-400 mt-1">Sua hospedagem é gratuita e vitalícia.</p>
+                                <p class="text-[11px] text-gray-600">Hospedagem, plugins e "taxa de suporte".</p>
                             </div>
                         </div>
-                        <div class="mt-8">
-                            <a href="https://wa.me/5551992496479?text=Olá%20Fernando.%20Vi%20a%20promoção%20de%20R$450%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="block w-full text-center bg-primary hover:bg-violet-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-primary/40">
-                                Quero Aproveitar Essa Oportunidade
-                            </a>
+                    </div>
+
+                    <!-- Card: Site Fácil -->
+                    <div class="relative bg-[#08080c] p-1 rounded-[2.2rem] bg-gradient-to-br from-primary/40 via-primary/10 to-transparent shadow-[0_0_60px_rgba(139,92,246,0.2)]">
+                        <div class="bg-[#08080c] p-8 rounded-[2.1rem] h-full text-left flex flex-col border border-primary/40 relative overflow-hidden">
+                            <div class="absolute -top-0 right-8 bg-primary text-white text-[10px] font-black px-4 py-2 rounded-b-xl uppercase tracking-[0.1em] shadow-xl z-10">Oferta Especial</div>
+                            <div class="flex items-center gap-3 mb-8">
+                                <i class="fa-solid fa-bolt text-2xl text-primary animate-pulse"></i>
+                                <h3 class="text-3xl font-black text-white tracking-tighter">Site Fácil</h3>
+                            </div>
+                            <div class="space-y-6 flex-grow">
+                                <div class="bg-[#120a20] p-7 rounded-2xl border border-primary/25 relative overflow-hidden group">
+                                    <div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    <p class="text-[11px] font-black text-primary uppercase mb-3 tracking-widest">Investimento Único (Criação)</p>
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="text-gray-500 text-xs font-bold">A partir de</span>
+                                        <p class="text-4xl md:text-5xl font-black text-white tracking-tighter">R$ 450,00*</p>
+                                    </div>
+                                    <p class="text-[10px] text-gray-500 italic font-medium">*Valor inicial. Sujeito a análise do projeto.</p>
+                                </div>
+                                <div class="bg-[#05110a] p-7 rounded-2xl border border-green-900/30">
+                                    <p class="text-[11px] font-black text-green-500 uppercase mb-3 tracking-widest">Mensalidade de Hospedagem</p>
+                                    <p class="text-5xl font-black text-green-400 mb-2 tracking-tighter">R$ 0,00</p>
+                                    <p class="text-xs text-green-700 font-bold">Sua hospedagem é gratuita e vitalícia.</p>
+                                </div>
+                            </div>
+                            <div class="mt-10">
+                                <a href="https://wa.me/5551992496479?text=Olá%20Fernando.%20Vi%20a%20promoção%20de%20R$450%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="block w-full bg-primary hover:bg-violet-600 text-white text-center font-black py-5 rounded-2xl transition-all shadow-2xl hover:scale-[1.03] active:scale-95 transform tracking-tight text-lg">
+                                    Quero Aproveitar Essa Oportunidade
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Galeria de Comprovantes (Carrossel) -->
+        <!-- Galeria de Comprovantes -->
         <section class="py-16 bg-white dark:bg-darker">
             <div class="container mx-auto px-4 max-w-4xl">
                 <div class="text-center mb-8">
                     <h2 class="text-2xl md:text-3xl font-bold mb-2">Veja com seus próprios olhos</h2>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">Prints reais de orçamentos e tabelas de preços encontradas online em 2025.</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">Prints reais de orçamentos encontrados online em 2025.</p>
                 </div>
-
-                <!-- Container do Carrossel -->
                 <div class="relative bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-inner p-4 md:p-8">
-                    
-                    <!-- Slides -->
                     <div id="carousel-container" class="relative overflow-hidden aspect-video md:aspect-[16/9] flex items-center justify-center bg-gray-200 dark:bg-gray-900 rounded-lg cursor-zoom-in" onclick="openImageModal()">
-                        
-                        <!-- SLIDE 1 -->
-                        <div class="carousel-slide active w-full h-full">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEju4KBS_AhrcggGLYYNIwpiwAMNJcXlSWi4XQ8zZY87PLgMfiQMIe6dK8lE7mxLK2DVzpefiTmr996tfKHk9xg4hCqa5Wbn7M87a5Hatk7gAGjG32IpwpYjf_4ZquawjfpeZE_3PZ5JA6mL6O2y37c2N0t6VOplRy0MvTA7Jzg7JVaVFoEFsVRq80WiHF0/s1600/UpSites.png" alt="Print de Preços 1 - UpSites" class="w-full h-full object-contain">
-                        </div>
-
-                        <!-- SLIDE 2 -->
-                        <div class="carousel-slide w-full h-full">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9sOpdp4EXwP3AZxxm-rFjCu8MLam_QFNv_dU9tEctm0Rpl7QRXUeow1H3E4kZiEtc8nL-8C_IinveZ68N14Yonmr6kdSVWDJ3eJueqCLC-1wf9sce-jezhx3JER5twe_eG22mGt2IV4zUf1kQzSeK8ocTuNp_6hGfntWjF4TjWUEB4jEf_Odmjo_TR9M/s1600/HGX.png" alt="Print de Preços 2 - HGX" class="w-full h-full object-contain">
-                        </div>
-
-                        <!-- SLIDE 3 -->
-                        <div class="carousel-slide w-full h-full">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiih39m8BuTE_NXVKvbYCiejJJn85RbjKNwhK8cBYGKtZ1YbJXDpzrRlN4HaR6bbZ4QrV5aoe3Bu16zAZQpRrjtp-H28m_B4g1nHCw-X1rsqAw0iX_ce_5GuOfKxBJKl62stG0FadKU1otwFd_zk3R1oO2gdIviojaR1h_9peuP953t8iCvjIyeIE9JqmU/s1600/DigitalZ.png" alt="Print de Preços 3 - DigitalZ" class="w-full h-full object-contain">
-                        </div>
-
-                        <!-- SLIDE 4 -->
-                        <div class="carousel-slide w-full h-full">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmkfLuPL1dH-fzJj36ZPIq5E8Hajh0ZUsMl_qaBZZ2bwGeFy7SJR_XJ42ztIaLnz85XYTy3VAP9-JYzvriXrUTgsrG23UCPFhOa6xExeP-F8ej3AkIkowFPXL37AM8nNEAQORBq_jzH7MyzXNfq0DzWGJE3ahBvEn_oOhy4t-VpqwAstif0RXZ3mF5Aq4/s1600/PNZ.png" alt="Print de Preços 4 - PNZ" class="w-full h-full object-contain">
-                        </div>
-
-                        <!-- SLIDE 5 -->
-                        <div class="carousel-slide w-full h-full">
-                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyPSMhhiOjlY6B9wPiL_JnyR2tZvhPPlgEWdg1wNoH2Nv1VwYqnRl1TidycxCNVfDwjFNkEQUYQAyaFhbkyWVX1ugsuHpW5n4lK7E3qrgxjrRMGbUUyIA86gYNX9QuZJB38LuM5jUfCkcFcl7V9jasMLTSi6CCLXk5BvfQPXWuhX90FPfrQtx2syA-H6E/s1600/Eco%20Web%20Design.png" alt="Print de Preços 5 - Eco Web Design" class="w-full h-full object-contain">
-                        </div>
-                        
+                        <div class="carousel-slide active w-full h-full"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEju4KBS_AhrcggGLYYNIwpiwAMNJcXlSWi4XQ8zZY87PLgMfiQMIe6dK8lE7mxLK2DVzpefiTmr996tfKHk9xg4hCqa5Wbn7M87a5Hatk7gAGjG32IpwpYjf_4ZquawjfpeZE_3PZ5JA6mL6O2y37c2N0t6VOplRy0MvTA7Jzg7JVaVFoEFsVRq80WiHF0/s1600/UpSites.png" class="w-full h-full object-contain"></div>
+                        <div class="carousel-slide w-full h-full"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9sOpdp4EXwP3AZxxm-rFjCu8MLam_QFNv_dU9tEctm0Rpl7QRXUeow1H3E4kZiEtc8nL-8C_IinveZ68N14Yonmr6kdSVWDJ3eJueqCLC-1wf9sce-jezhx3JER5twe_eG22mGt2IV4zUf1kQzSeK8ocTuNp_6hGfntWjF4TjWUEB4jEf_Odmjo_TR9M/s1600/HGX.png" class="w-full h-full object-contain"></div>
+                        <div class="carousel-slide w-full h-full"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiih39m8BuTE_NXVKvbYCiejJJn85RbjKNwhK8cBYGKtZ1YbJXDpzrRlN4HaR6bbZ4QrV5aoe3Bu16zAZQpRrjtp-H28m_B4g1nHCw-X1rsqAw0iX_ce_5GuOfKxBJKl62stG0FadKU1otwFd_zk3R1oO2gdIviojaR1h_9peuP953t8iCvjIyeIE9JqmU/s1600/DigitalZ.png" class="w-full h-full object-contain"></div>
+                        <div class="carousel-slide w-full h-full"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjmkfLuPL1dH-fzJj36ZPIq5E8Hajh0ZUsMl_qaBZZ2bwGeFy7SJR_XJ42ztIaLnz85XYTy3VAP9-JYzvriXrUTgsrG23UCPFhOa6xExeP-F8ej3AkIkowFPXL37AM8nNEAQORBq_jzH7MyzXNfq0DzWGJE3ahBvEn_oOhy4t-VpqwAstif0RXZ3mF5Aq4/s1600/PNZ.png" class="w-full h-full object-contain"></div>
+                        <div class="carousel-slide w-full h-full"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyPSMhhiOjlY6B9wPiL_JnyR2tZvhPPlgEWdg1wNoH2Nv1VwYqnRl1TidycxCNVfDwjFNkEQUYQAyaFhbkyWVX1ugsuHpW5n4lK7E3qrgxjrRMGbUUyIA86gYNX9QuZJB38LuM5jUfCkcFcl7V9jasMLTSi6CCLXk5BvfQPXWuhX90FPfrQtx2syA-H6E/s1600/Eco%20Web%20Design.png" class="w-full h-full object-contain"></div>
                     </div>
-
-                    <!-- Controles -->
-                    <button onclick="prevSlide()" class="absolute top-1/2 left-4 md:left-8 transform -translate-y-1/2 bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-primary p-3 rounded-full shadow-lg transition-all focus:outline-none">
-                        <i class="fa-solid fa-chevron-left text-xl"></i>
-                    </button>
-                    <button onclick="nextSlide()" class="absolute top-1/2 right-4 md:right-8 transform -translate-y-1/2 bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-primary p-3 rounded-full shadow-lg transition-all focus:outline-none">
-                        <i class="fa-solid fa-chevron-right text-xl"></i>
-                    </button>
-
-                    <!-- Indicadores (Bolinhas) -->
+                    <button onclick="prevSlide()" class="absolute top-1/2 left-4 md:left-8 transform -translate-y-1/2 bg-white/80 dark:bg-black/50 text-primary p-3 rounded-full shadow-lg"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button onclick="nextSlide()" class="absolute top-1/2 right-4 md:right-8 transform -translate-y-1/2 bg-white/80 dark:bg-black/50 text-primary p-3 rounded-full shadow-lg"><i class="fa-solid fa-chevron-right"></i></button>
                     <div class="flex justify-center gap-2 mt-4" id="carousel-indicators">
-                        <button onclick="goToSlide(0)" class="w-3 h-3 rounded-full bg-primary transition-all"></button>
-                        <button onclick="goToSlide(1)" class="w-3 h-3 rounded-full bg-gray-400 hover:bg-primary transition-all"></button>
-                        <button onclick="goToSlide(2)" class="w-3 h-3 rounded-full bg-gray-400 hover:bg-primary transition-all"></button>
-                        <button onclick="goToSlide(3)" class="w-3 h-3 rounded-full bg-gray-400 hover:bg-primary transition-all"></button>
-                        <button onclick="goToSlide(4)" class="w-3 h-3 rounded-full bg-gray-400 hover:bg-primary transition-all"></button>
+                        <button onclick="goToSlide(0)" class="w-3 h-3 rounded-full bg-primary"></button>
+                        <button onclick="goToSlide(1)" class="w-3 h-3 rounded-full bg-gray-400"></button>
+                        <button onclick="goToSlide(2)" class="w-3 h-3 rounded-full bg-gray-400"></button>
+                        <button onclick="goToSlide(3)" class="w-3 h-3 rounded-full bg-gray-400"></button>
+                        <button onclick="goToSlide(4)" class="w-3 h-3 rounded-full bg-gray-400"></button>
                     </div>
-
-                    <p class="text-center text-xs text-gray-500 mt-4"><i class="fa-solid fa-magnifying-glass-plus"></i> Clique na imagem para ampliar</p>
                 </div>
             </div>
         </section>
 
-        <!-- Simulação de Custos (Tabela) - MOVIDO PARA CIMA -->
+        <!-- Simulação de Custos Anuais -->
         <section id="custos" class="py-20 bg-black text-white">
             <div class="container mx-auto px-4 max-w-5xl">
                 <div class="mb-12 text-center">
                     <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">Simulação de Custos Anuais</h2>
-                    <p class="text-gray-400 mb-8">Estimativa média para manter um site básico por 1 ano.</p>
+                    <p class="text-gray-400 mb-8">Estimativa média para manter um site institucional básico por 1 ano.</p>
                     
-                    <!-- Botão de Chamada para o Guia - NOVO DESIGN CENTRALIZADO -->
-                    <div class="flex justify-center">
-                        <button onclick="openModal('guide-modal')" class="group relative flex flex-col items-center justify-center gap-2 bg-gray-800 hover:bg-gray-800/80 border-2 border-primary text-white py-6 px-12 rounded-2xl transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.3)] hover:shadow-[0_0_40px_rgba(139,92,246,0.6)] transform hover:-translate-y-1 w-full md:w-auto">
-                            <!-- Texto Topo -->
-                            <span class="text-xs text-gray-400 uppercase tracking-widest font-semibold group-hover:text-primary transition-colors">
-                                Dúvidas com os termos?
-                            </span>
-                            
-                            <!-- Texto Meio -->
-                            <span class="text-2xl font-extrabold tracking-tight">
-                                Guia para Leigos
-                            </span>
-                            
-                            <!-- Botão Ação (Pulsando) -->
+                    <div class="flex justify-center mb-12">
+                        <button onclick="openModal('guide-modal')" class="group relative flex flex-col items-center justify-center gap-2 bg-gray-800 hover:bg-gray-800/80 border-2 border-primary text-white py-6 px-12 rounded-2xl transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.3)] transform hover:-translate-y-1 w-full md:auto">
+                            <span class="text-xs text-gray-400 uppercase tracking-widest font-semibold group-hover:text-primary">Dúvidas com os termos?</span>
+                            <span class="text-2xl font-extrabold tracking-tight">Guia para Leigos</span>
                             <div class="mt-2 bg-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg animate-pulse group-hover:animate-none group-hover:bg-white group-hover:text-primary transition-all flex items-center">
                                 <i class="fa-solid fa-hand-pointer mr-2"></i> Clique Aqui
                             </div>
                         </button>
                     </div>
-                </div>
 
-                <!-- Indicador de Rolagem (Visível apenas no Mobile) - VERSÃO DESTACADA -->
-                <div class="md:hidden flex justify-center mb-6">
-                    <!-- Usando animate-pulse-bright em vez de animate-pulse -->
-                    <div class="flex items-center gap-3 bg-gradient-to-r from-primary to-violet-700 text-white py-3 px-6 rounded-lg shadow-[0_0_20px_rgba(139,92,246,0.5)] animate-pulse-bright border border-white/20">
-                        <div class="animate-slide-right">
-                            <i class="fa-solid fa-hand-pointer text-xl rotate-180"></i>
-                        </div>
-                        <span class="font-bold text-sm uppercase tracking-wide">Arraste para o lado</span>
-                        <i class="fa-solid fa-arrow-right"></i>
+                    <div class="overflow-x-auto rounded-lg shadow-2xl border border-gray-800">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-gray-900 border-b border-gray-700 text-gray-300">
+                                    <th class="p-4 md:p-6 font-semibold w-1/3">Item de Custo</th>
+                                    <th class="p-4 md:p-6 font-bold text-primary w-1/3 bg-gray-800/50 border-t-4 border-t-primary">Site HTML/CSS Estático</th>
+                                    <th class="p-4 md:p-6 font-semibold w-1/3 text-gray-500">Site WordPress Básico</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-800">
+                                <tr class="hover:bg-gray-900/50 transition">
+                                    <td class="p-4 md:p-6 font-bold text-white">Criação / Setup (1x)</td>
+                                    <td class="p-4 md:p-6 text-primary font-bold">A partir de R$ 450,00*</td>
+                                    <td class="p-4 md:p-6">R$ 2.500,00 (Média)</td>
+                                </tr>
+                                <tr class="hover:bg-gray-900/50 transition">
+                                    <td class="p-4 md:p-6">Hospedagem (Obrigatória)</td>
+                                    <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(GitHub Pages)</span></td>
+                                    <td class="p-4 md:p-6">R$ 1.440,00 <span class="text-xs font-normal text-gray-500 block">(R$ 120/mês média)</span></td>
+                                </tr>
+                                <tr class="hover:bg-gray-900/50 transition">
+                                    <td class="p-4 md:p-6">Manutenção Técnica</td>
+                                    <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(Site não "quebra")</span></td>
+                                    <td class="p-4 md:p-6">R$ 600,00 <span class="text-xs font-normal text-gray-500 block">(R$ 50/mês básico)</span></td>
+                                </tr>
+                                <tr class="bg-gray-800/50 font-bold"><td colspan="3" class="p-4 md:p-6 text-xs uppercase tracking-widest text-gray-400 border-l-4 border-primary">Opção Com Domínio Próprio:</td></tr>
+                                <tr class="hover:bg-gray-900/50 transition">
+                                    <td class="p-4 md:p-6">Domínio Anual (.com.br)</td>
+                                    <td class="p-4 md:p-6">R$ 40,00</td>
+                                    <td class="p-4 md:p-6">R$ 40,00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-900/50 transition">
+                                    <td class="p-4 md:p-6">Taxa Configuração DNS</td>
+                                    <td class="p-4 md:p-6 text-yellow-400 font-medium">R$ 50,00 <span class="text-xs font-normal text-gray-400 block">(Taxa única)**</span></td>
+                                    <td class="p-4 md:p-6 text-yellow-400 font-medium">R$ 100,00 <span class="text-xs font-normal text-gray-400 block">(Taxa mínima)**</span></td>
+                                </tr>
+                                <tr class="bg-primary/20 font-bold text-lg border-t-2 border-primary">
+                                    <td class="p-4 md:p-6 text-white uppercase">TOTAL GERAL (1º ANO)</td>
+                                    <td class="p-4 md:p-6 text-primary text-2xl">R$ 540,00</td>
+                                    <td class="p-4 md:p-6 text-red-400 text-2xl">~ R$ 4.680,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
-                <div class="overflow-x-auto rounded-lg shadow-2xl border border-gray-800">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-gray-900 border-b border-gray-700 text-gray-300">
-                                <th class="p-4 md:p-6 font-semibold w-1/3">Item de Custo</th>
-                                <th class="p-4 md:p-6 font-bold text-primary w-1/3 bg-gray-800/50 border-t-4 border-t-primary">Site HTML/CSS Estático</th>
-                                <th class="p-4 md:p-6 font-semibold w-1/3 text-gray-500">Site WordPress Básico</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-gray-800">
-                             <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6 font-bold text-white">Criação / Setup (1x)</td>
-                                <td class="p-4 md:p-6 text-primary font-bold">A partir de R$ 450,00*</td>
-                                <td class="p-4 md:p-6">R$ 2.500,00 (Média)</td>
-                            </tr>
-                            <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6">Hospedagem (Obrigatória)</td>
-                                <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(GitHub Pages)</span></td>
-                                <td class="p-4 md:p-6">R$ 1.440,00 <span class="text-xs font-normal text-gray-500 block">(R$ 120/mês média)</span></td>
-                            </tr>
-                            <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6">Manutenção Técnica</td>
-                                <td class="p-4 md:p-6 font-bold text-green-400">R$ 0,00 <span class="text-xs font-normal text-gray-400 block">(Site não "quebra")</span></td>
-                                <td class="p-4 md:p-6">R$ 600,00 <span class="text-xs font-normal text-gray-500 block">(R$ 50/mês básico)</span></td>
-                            </tr>
-                            <tr class="bg-gray-800 font-bold border-t-2 border-gray-600">
-                                <td class="p-4 md:p-6 uppercase text-gray-300">SUBTOTAL (Sem Domínio)</td>
-                                <td class="p-4 md:p-6 text-primary text-xl">R$ 450,00</td>
-                                <td class="p-4 md:p-6 text-white text-xl">R$ 4.540,00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6 font-bold text-white text-sm uppercase tracking-wider pl-4 md:pl-8 border-l-4 border-primary">Opção Com Domínio Próprio:</td>
-                                <td class="p-4 md:p-6"></td>
-                                <td class="p-4 md:p-6"></td>
-                            </tr>
-                             <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6 pl-4 md:pl-8">Domínio Anual (.com.br)</td>
-                                <td class="p-4 md:p-6 text-white font-medium">R$ 40,00</td>
-                                <td class="p-4 md:p-6 text-white">R$ 40,00</td>
-                            </tr>
-                            <tr class="hover:bg-gray-900/50 transition">
-                                <td class="p-4 md:p-6 pl-4 md:pl-8">Taxa Configuração DNS</td>
-                                <td class="p-4 md:p-6 font-medium text-yellow-400">R$ 50,00 <span class="text-xs font-normal text-gray-400 block">(Taxa única)**</span></td>
-                                <td class="p-4 md:p-6 font-medium text-yellow-400">R$ 100,00 <span class="text-xs font-normal text-gray-400 block">(Taxa mínima)**</span></td>
-                            </tr>
-                            <tr class="bg-primary/20 font-bold text-lg border-t-2 border-primary">
-                                <td class="p-4 md:p-6 text-white">TOTAL GERAL (1º ANO)</td>
-                                <td class="p-4 md:p-6 text-primary text-2xl">R$ 540,00</td>
-                                <td class="p-4 md:p-6 text-red-400 text-2xl">~ R$ 4.680,00</td>
-                            </tr>
-                            <tr>
-                                <td class="p-4 text-sm text-gray-500 italic" colspan="3">
-                                    <p class="mb-1">*O valor de R$ 450,00 é promocional e sujeito a análise. Valores de mercado baseados em orçamentos de 2025.</p>
-                                    <p>** Taxas de configuração e valores de domínio sujeitos à alterações sem aviso prévio.</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <!-- Comparativo 10, 20, 30 Anos -->
+                <div class="mt-20 mb-12 text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-primary">Economia a Longo Prazo: O Impacto no seu Bolso</h2>
+                    <p class="text-gray-400 mb-10">Compare quanto você deixa na mesa ao longo das décadas.</p>
+                    
+                    <div class="overflow-x-auto rounded-xl shadow-2xl border border-gray-800 bg-gray-900/50">
+                        <table class="w-full text-center border-collapse">
+                            <thead>
+                                <tr class="border-b border-gray-800 bg-gray-900 text-gray-300">
+                                    <th class="p-4 md:p-6 font-bold text-left">Tempo</th>
+                                    <th class="p-4 md:p-6 font-bold">Site WordPress (Acumulado)*</th>
+                                    <th class="p-4 md:p-6 font-bold text-primary">Site Fácil (Acumulado)**</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-800">
+                                <tr class="hover:bg-gray-800/50 transition">
+                                    <td class="p-4 md:p-6 text-left font-bold text-gray-400">Em 10 Anos</td>
+                                    <td class="p-4 md:p-6 text-red-500 font-bold">R$ 20.800,00</td>
+                                    <td class="p-4 md:p-6 text-green-400 font-black">R$ 450,00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-800/50 transition">
+                                    <td class="p-4 md:p-6 text-left font-bold text-gray-400">Em 20 Anos</td>
+                                    <td class="p-4 md:p-6 text-red-500 font-bold">R$ 41.600,00</td>
+                                    <td class="p-4 md:p-6 text-green-400 font-black">R$ 900,00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-800/50 transition">
+                                    <td class="p-4 md:p-6 text-left font-bold text-gray-400">Em 30 Anos</td>
+                                    <td class="p-4 md:p-6 text-red-500 font-bold">R$ 62.400,00</td>
+                                    <td class="p-4 md:p-6 text-green-400 font-black">R$ 1.350,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-6 text-xs text-gray-500 italic text-left space-y-1">
+                        <p>*Estimativa baseada em taxas de renovação de hospedagem standard e pequenos ajustes técnicos anuais.</p>
+                        <p>**Considerando apenas o valor da anuidade do domínio (base R$ 45/ano para fins de estimativa de longo prazo).</p>
+                    </div>
+
+                    <!-- Frase de Destaque -->
+                    <div class="mt-12 bg-primary/10 border-l-4 border-primary p-8 rounded-r-2xl text-justify md:text-center shadow-xl">
+                        <p class="text-xl md:text-2xl font-bold text-white leading-relaxed">
+                            "Muitas empresas não percebem que, ao longo de uma década, gastam o preço de um <span class="text-primary">carro usado</span> apenas para manter um site simples no ar. Com o <span class="text-primary">Site Fácil</span>, esse dinheiro fica no seu bolso."
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Explicação Domínio -->
-                <div class="mt-10 max-w-4xl mx-auto bg-gray-900 rounded-2xl p-6 md:p-8 border border-gray-800">
-                    <h3 class="text-2xl font-bold mb-4 text-primary">Domínio Próprio ou Custo Zero? Entenda a Diferença</h3>
-                    <p class="text-gray-300 mb-6 leading-relaxed">
-                        Seu site funcionará perfeitamente com qualquer uma das opções. A escolha depende da necessidade de credibilidade do seu negócio:
-                    </p>
-
-                    <div class="space-y-6">
+                <div class="mt-16 max-w-4xl mx-auto bg-gray-900 rounded-2xl p-6 md:p-10 border border-gray-800">
+                    <h3 class="text-2xl font-bold mb-6 text-primary">Domínio Próprio ou Custo Zero? Entenda a Diferença</h3>
+                    <div class="space-y-8">
                         <div class="flex items-start gap-4">
-                            <div class="bg-green-900/30 p-3 rounded-lg text-green-400 mt-1">
-                                <i class="fa-solid fa-leaf text-xl"></i>
-                            </div>
+                            <div class="bg-green-900/30 p-4 rounded-lg text-green-400"><i class="fa-solid fa-leaf text-2xl"></i></div>
                             <div>
-                                <h4 class="text-lg font-bold text-green-400 mb-1">Para Custo Zero Total (Cardápios e Menus)</h4>
-                                <p class="text-gray-400 text-sm md:text-base text-justify">
-                                    Recomendamos usar o domínio gratuito da Cloudflare (seunome.pages.dev). Ele é rápido, seguro e ideal para negócios que focam em máxima economia. Para um cardápio online, a URL funciona com autoridade e não exige custo anual.
-                                </p>
+                                <h4 class="text-lg font-bold text-green-400 mb-2">Para Custo Zero Total (Cardápios e Menus)</h4>
+                                <p class="text-gray-400 text-sm md:text-base text-justify">Recomendamos usar o domínio gratuito da Cloudflare (seunome.pages.dev). Ele é rápido, seguro e ideal para negócios que focam em máxima economia. Para um cardápio online, a URL funciona com autoridade e não exige custo anual.</p>
                             </div>
                         </div>
-
                         <div class="flex items-start gap-4">
-                            <div class="bg-blue-900/30 p-3 rounded-lg text-blue-400 mt-1">
-                                <i class="fa-solid fa-briefcase text-xl"></i>
-                            </div>
+                            <div class="bg-blue-900/30 p-4 rounded-lg text-blue-400"><i class="fa-solid fa-briefcase text-2xl"></i></div>
                             <div>
-                                <h4 class="text-lg font-bold text-white mb-1">Para Máxima Credibilidade (Sites Institucionais)</h4>
-                                <p class="text-gray-400 text-sm md:text-base text-justify">
-                                    Para Advogados, Consultores e Empresas que precisam transmitir total confiança, o domínio próprio (.com.br ou .com) é recomendado. Nesses casos, o custo anual é de apenas R$ 40,00 (pago ao Registro.br).
-                                </p>
+                                <h4 class="text-lg font-bold text-white mb-2">Para Máxima Credibilidade (Sites Institucionais)</h4>
+                                <p class="text-gray-400 text-sm md:text-base text-justify">Para Advogados, Consultores e Empresas que precisam transmitir total confiança, o domínio próprio (.com.br ou .com) é recomendado. Nesses casos, o custo anual é de apenas R$ 40,00 (pago ao Registro.br).</p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="mt-8 bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-r-lg">
+                    <div class="mt-10 bg-yellow-900/20 border-l-4 border-yellow-500 p-6 rounded-r-xl">
                         <p class="text-yellow-200 text-sm md:text-base text-justify">
-                            <strong class="font-bold text-yellow-400 block mb-1"><i class="fa-solid fa-circle-exclamation mr-2"></i>Atenção:</strong>
+                            <strong class="font-bold text-yellow-400 block mb-2"><i class="fa-solid fa-circle-exclamation mr-2"></i>Atenção:</strong>
                             Optando pelo domínio próprio, será aplicada uma taxa única de R$ 50,00 para a Configuração de DNS. Este é o serviço técnico que garante que seu domínio funcione corretamente na infraestrutura da Cloudflare.
                         </p>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <!-- A Solução (HTML Puro) - AGORA APÓS TABELA DE PREÇOS -->
+        <!-- A Solução (Simplicidade) -->
         <section class="py-20 bg-white dark:bg-darker">
-            <div class="container mx-auto px-4 max-w-5xl">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4">A Solução: <span class="text-primary">Simplicidade</span></h2>
-                    <!-- HTML Puro quebrando linha no mobile -->
-                    <p class="text-xl text-gray-600 dark:text-gray-400">
-                        A Força da Simplicidade <span class="block md:inline">(HTML Puro)</span>
-                    </p>
-                </div>
-
+            <div class="container mx-auto px-4 max-w-5xl text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">A Solução: <span class="text-primary">Simplicidade</span></h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 mb-16">A Força da Simplicidade <span class="block md:inline font-bold">(HTML Puro)</span></p>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
-                    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-primary/50 transition-all duration-300">
-                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-rocket text-2xl text-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Velocidade Máxima</h3>
-                        <!-- Texto alinhado a esquerda (Justificado removido) -->
-                        <p class="text-gray-600 dark:text-gray-400">
-                            Sem banco de dados, sem PHP. Carregamento rápido. Seu cliente não espera.
-                        </p>
+                    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-primary/50 transition">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto"><i class="fa-solid fa-rocket text-2xl text-primary"></i></div>
+                        <h3 class="text-xl font-bold mb-4">Velocidade Máxima</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Sem banco de dados, sem PHP. Carregamento instantâneo. Seu cliente não espera.</p>
                     </div>
-
-                    <!-- Card 2 -->
-                    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-primary/50 transition-all duration-300">
-                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-shield-halved text-2xl text-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Segurança Extrema</h3>
-                        <!-- Texto alinhado a esquerda (Justificado removido) -->
-                        <p class="text-gray-600 dark:text-gray-400">
-                            Sem banco de dados para hackear. Seu site é estático e robusto. Livre de SQL Injection.
-                        </p>
+                    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-primary/50 transition">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto"><i class="fa-solid fa-shield-halved text-2xl text-primary"></i></div>
+                        <h3 class="text-xl font-bold mb-4">Segurança Extrema</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Sem banco de dados para hackear. Seu site é estático e robusto. Livre de SQL Injection.</p>
                     </div>
-
-                    <!-- Card 3 -->
-                    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-primary/50 transition-all duration-300">
-                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                            <i class="fa-solid fa-wallet text-2xl text-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Custo Zero de Hospedagem</h3>
-                        <!-- Texto alinhado a esquerda (Justificado removido) -->
-                        <p class="text-gray-600 dark:text-gray-400">
-                            Utilizamos a infraestrutura confiável do GitHub Pages e Cloudflare. Você elimina assinaturas mensais.
-                        </p>
+                    <div class="bg-gray-50 dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 hover:border-primary/50 transition">
+                        <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto"><i class="fa-solid fa-wallet text-2xl text-primary"></i></div>
+                        <h3 class="text-xl font-bold mb-4">Custo Zero de Hospedagem</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">Utilizamos a infraestrutura confiável do GitHub Pages e Cloudflare. Sem assinaturas.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Comparação HTML vs WP -->
+        <!-- Comparação HTML vs WP (Cards Lado a Lado) -->
         <section class="py-20 bg-gray-50 dark:bg-dark border-t border-gray-200 dark:border-gray-800">
             <div class="container mx-auto px-4 max-w-6xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">HTML/CSS Puro vs. WordPress</h2>
-                
+                <h2 class="text-3xl md:text-5xl font-black text-center mb-16 tracking-tighter">HTML/CSS Puro vs. WordPress</h2>
                 <div class="grid lg:grid-cols-2 gap-8">
-                    <!-- Lado HTML -->
-                    <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border-2 border-primary overflow-hidden relative">
-                        <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">RECOMENDADO</div>
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-primary">
-                                <i class="fa-brands fa-html5 text-3xl"></i> Site HTML/CSS Puro
-                            </h3>
-                            
+                    <!-- HTML -->
+                    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-xl border-2 border-primary overflow-hidden relative">
+                        <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-4 py-2 rounded-bl-xl uppercase tracking-widest">RECOMENDADO</div>
+                        <div class="p-8 md:p-10">
+                            <h3 class="text-2xl font-bold mb-8 flex items-center gap-3 text-primary"><i class="fa-brands fa-html5 text-4xl"></i> Site HTML/CSS Puro</h3>
                             <ul class="space-y-6">
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <strong class="block text-lg">Mais rápido por natureza</strong>
-                                        <span class="text-gray-600 dark:text-gray-400 text-sm block text-justify">O navegador recebe o arquivo final direto. Carregamento instantâneo.</span>
-                                    </div>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 text-xl mt-1"></i>
+                                    <div><strong class="block text-lg">Mais rápido por natureza</strong><p class="text-gray-600 dark:text-gray-400 text-sm text-justify">O navegador recebe o arquivo final direto. Carregamento instantâneo.</p></div>
                                 </li>
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <strong class="block text-lg">Extremamente seguro</strong>
-                                        <span class="text-gray-600 dark:text-gray-400 text-sm block text-justify">Não há banco de dados vulnerável. Risco praticamente zero.</span>
-                                    </div>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 text-xl mt-1"></i>
+                                    <div><strong class="block text-lg">Extremamente seguro</strong><p class="text-gray-600 dark:text-gray-400 text-sm text-justify">Não há banco de dados vulnerável. Risco praticamente zero.</p></div>
                                 </li>
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <strong class="block text-lg">Livre de Atualizações</strong>
-                                        <span class="text-gray-600 dark:text-gray-400 text-sm block text-justify">O código não envelhece. Uma vez construído, funciona para sempre.</span>
-                                    </div>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 text-xl mt-1"></i>
+                                    <div><strong class="block text-lg">Livre de Atualizações</strong><p class="text-gray-600 dark:text-gray-400 text-sm text-justify">O código não envelhece. Uma vez construído, funciona para sempre.</p></div>
                                 </li>
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <strong class="block text-lg">Custos Baixíssimos</strong>
-                                        <span class="text-gray-600 dark:text-gray-400 text-sm block text-justify">Custos operacionais próximos a zero.</span>
-                                    </div>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-check text-green-500 text-xl mt-1"></i>
+                                    <div><strong class="block text-lg">Custos Baixíssimos</strong><p class="text-gray-600 dark:text-gray-400 text-sm text-justify">Custos operacionais próximos a zero.</p></div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-
-                    <!-- Lado WordPress -->
-                    <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700 opacity-90">
-                        <div class="p-8">
-                            <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-gray-500 dark:text-gray-400">
-                                <i class="fa-brands fa-wordpress text-3xl"></i> WordPress (CMS)
-                            </h3>
-                            
+                    <!-- WordPress -->
+                    <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-sm border border-gray-200 dark:border-gray-700 opacity-90 transition-opacity hover:opacity-100">
+                        <div class="p-8 md:p-10">
+                            <h3 class="text-2xl font-bold mb-8 flex items-center gap-3 text-gray-500"><i class="fa-brands fa-wordpress text-4xl"></i> WordPress (CMS)</h3>
                             <ul class="space-y-6">
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <strong class="block text-lg text-gray-700 dark:text-gray-300">Lento por design</strong>
-                                        <span class="text-gray-600 dark:text-gray-500 text-sm block text-justify">Precisa rodar PHP e consultar banco de dados a cada visita.</span>
-                                    </div>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-xmark text-red-500 text-xl mt-1"></i>
+                                    <div><strong class="block text-lg text-gray-700 dark:text-gray-300">Lento por design</strong><p class="text-gray-600 dark:text-gray-500 text-sm text-justify">Precisa rodar PHP e consultar banco de dados a cada visita.</p></div>
                                 </li>
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <strong class="block text-lg text-gray-700 dark:text-gray-300">Alvo constante de ataques</strong>
-                                        <span class="text-gray-600 dark:text-gray-500 text-sm block text-justify">CMS mais atacado do mundo. Falhas em plugins são constantes.</span>
-                                    </div>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-xmark text-red-500 text-xl mt-1"></i>
+                                    <div><strong class="block text-lg text-gray-700 dark:text-gray-300">Alvo constante de ataques</strong><p class="text-gray-600 dark:text-gray-500 text-sm text-justify">CMS mais atacado do mundo. Falhas em plugins são constantes.</p></div>
                                 </li>
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <strong class="block text-lg text-gray-700 dark:text-gray-300">Pesadelo de Atualizações</strong>
-                                        <span class="text-gray-600 dark:text-gray-500 text-sm block text-justify">Ignorar atualizações quebra o site ou abre brechas de segurança.</span>
-                                    </div>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-xmark text-red-500 text-xl mt-1"></i>
+                                    <div><strong class="block text-lg text-gray-700 dark:text-gray-300">Pesadelo de Atualizações</strong><p class="text-gray-600 dark:text-gray-500 text-sm text-justify">Ignorar atualizações quebra o site ou abre brechas de segurança.</p></div>
                                 </li>
-                                <li class="flex items-start">
-                                    <i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <strong class="block text-lg text-gray-700 dark:text-gray-300">Custos Ocultos</strong>
-                                        <span class="text-gray-600 dark:text-gray-500 text-sm block text-justify">Licenças de plugins, temas e manutenções frequentes.</span>
-                                    </div>
+                                <li class="flex items-start gap-4">
+                                    <i class="fa-solid fa-xmark text-red-500 text-xl mt-1"></i>
+                                    <div><strong class="block text-lg text-gray-700 dark:text-gray-300">Custos Ocultos</strong><p class="text-gray-600 dark:text-gray-500 text-sm text-justify">Licenças de plugins, temas e manutenções técnicas frequentes.</p></div>
                                 </li>
                             </ul>
                         </div>
@@ -586,28 +434,26 @@
             </div>
         </section>
 
-        <!-- Infraestrutura (GitHub e Cloudflare) -->
-        <section class="py-20 bg-white dark:bg-darker">
-            <div class="container mx-auto px-4 max-w-4xl text-center">
-                <h2 class="text-3xl font-bold mb-12">Infraestrutura de Gigantes</h2>
-                
-                <div class="flex flex-col md:flex-row gap-12 justify-center items-stretch">
-                    <div class="flex-1 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition">
-                        <i class="fa-brands fa-github text-6xl mb-6 text-gray-800 dark:text-white"></i>
-                        <h3 class="text-xl font-bold mb-3">GitHub Pages</h3>
-                        <!-- Texto Justificado -->
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed text-justify">
-                            Adquirido pela Microsoft, é o padrão da indústria. Oferece hospedagem <strong>gratuita, rápida e segura</strong> diretamente dos repositórios de código.
-                        </p>
+        <!-- Infraestrutura de Gigantes -->
+        <section class="py-20 bg-black text-white">
+            <div class="container mx-auto px-4 max-w-5xl text-center">
+                <h2 class="text-3xl md:text-5xl font-black mb-16 tracking-tighter">Infraestrutura de Gigantes</h2>
+                <div class="flex flex-col md:flex-row gap-8 justify-center items-stretch">
+                    <!-- Card GitHub -->
+                    <div class="flex-1 p-10 rounded-3xl bg-black border border-gray-800 shadow-xl group hover:border-primary/50 transition-all duration-300">
+                        <div class="mb-8 transform group-hover:scale-110 transition-transform duration-300 flex justify-center items-center h-32">
+                            <i class="fa-brands fa-github text-7xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-black mb-4 text-white">GitHub Pages</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed text-justify">Adquirido pela Microsoft, é o <strong class="text-white">padrão da indústria</strong>. Oferece hospedagem <strong class="text-white">gratuita, rápida e segura</strong> diretamente dos repositórios de código.</p>
                     </div>
-
-                    <div class="flex-1 p-6 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition">
-                        <i class="fa-brands fa-cloudflare text-6xl mb-6 text-orange-500"></i>
-                        <h3 class="text-xl font-bold mb-3">Cloudflare</h3>
-                        <!-- Texto Justificado -->
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed text-justify">
-                            Rede global de entrega de conteúdo (CDN). Distribui seu site em servidores no mundo todo, garantindo carregamento rápido e proteção contra ataques.
-                        </p>
+                    <!-- Card Cloudflare -->
+                    <div class="flex-1 p-10 rounded-3xl bg-black border border-gray-800 shadow-xl group hover:border-cloudflare transition-all duration-300">
+                        <div class="mb-8 transform group-hover:scale-110 transition-transform duration-300 flex justify-center items-center h-32">
+                            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhI9zITaWdyd-DI48mb-ouw2iTt8Rghh0heMRU8RjdyRreEcBQQ6XaZQ8acc9pCH1R6eNmrVW5qOaGuLV4oN6OyrZglDXsUakhYk_GQiMGt6JbybzNE1DsoheT8culH8pPG-DM51IL60UI3fkNSHnr2Rp3wFdcvBoPbgL_WxbchJPUyMR7UygvCx-FbmA8/s852/Cloudflare%20upscale.png" alt="Cloudflare" class="w-32 h-auto object-contain">
+                        </div>
+                        <h3 class="text-2xl font-black mb-4 text-white">Cloudflare</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed text-justify">Rede global de entrega de conteúdo (CDN). Distribui seu site em servidores no <strong class="text-white">mundo todo</strong>, garantindo carregamento rápido e proteção contra ataques.</p>
                     </div>
                 </div>
             </div>
@@ -646,7 +492,7 @@
                             "Meu compromisso é remover as barreiras técnicas e financeiras, entregando a você o site que funciona, para que você possa focar no que faz de melhor: vender e crescer."
                         </p>
                         
-                        <!-- Botão WhatsApp Movido para cá -->
+                        <!-- Botão WhatsApp -->
                         <div class="mt-8 flex justify-center md:justify-start">
                              <a href="https://wa.me/5551992496479?text=Olá%20Fernando.%20Vi%20a%20promoção%20de%20R$450%20e%20gostaria%20de%20um%20orçamento." target="_blank" class="bg-green-600 hover:bg-green-700 text-white text-base font-bold py-3 px-8 rounded-full transition-colors flex items-center gap-3 shadow-lg hover:shadow-green-900/50 transform hover:scale-105 duration-200">
                                 <i class="fa-brands fa-whatsapp text-2xl"></i> Falar no WhatsApp
@@ -674,7 +520,7 @@
                     <button onclick="openModal('privacy-modal')" class="text-gray-400 hover:text-primary transition-colors">Política de Privacidade</button>
                 </div>
             </div>
-            <!-- Linha inferior ajustada SEM O BOTÃO -->
+            <!-- Linha inferior -->
             <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center gap-6">
                 <span class="text-sm text-gray-600 text-center md:text-left">&copy; 2025 Site Fácil. Todos os direitos reservados.</span>
                 
@@ -685,9 +531,7 @@
         </div>
     </footer>
 
-    <!-- Botão Flutuante removido daqui -->
-
-    <!-- Modal Guia Rápido (NOVO) -->
+    <!-- Modal Guia Rápido -->
     <div id="guide-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden" onclick="closeModal('guide-modal', event)">
         <div class="modal-content bg-white dark:bg-darker w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl relative px-4 pb-4 pt-14 md:p-8">
             <button onclick="closeModalButton('guide-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-red-500 text-2xl z-10 p-2">
@@ -714,15 +558,12 @@
                     </p>
                     
                     <div class="space-y-6 pl-4 border-l-2 border-gray-200 dark:border-gray-800 ml-2">
-                        <!-- Passo 1 -->
                         <div>
                             <h4 class="font-bold text-gray-900 dark:text-white mb-1">1. O Rascunho e Design</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400 text-justify">
                                 Definimos a aparência do seu site, o fluxo de navegação e as cores, garantindo que ele transmita credibilidade e seja fácil de usar em qualquer tela (computador ou celular).
                             </p>
                         </div>
-                        
-                        <!-- Passo 2 -->
                         <div>
                             <h4 class="font-bold text-gray-900 dark:text-white mb-2">2. A Construção (Codificação) <span class="text-xs font-normal text-gray-500">- Onde a mágica acontece</span></h4>
                             <div class="grid md:grid-cols-2 gap-4">
@@ -740,8 +581,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Passo 3 -->
                         <div>
                             <h4 class="font-bold text-gray-900 dark:text-white mb-1">3. Publicação (Deploy)</h4>
                             <p class="text-sm text-gray-600 dark:text-gray-400 text-justify">
@@ -784,7 +623,7 @@
                                     <td class="p-3 md:p-4 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">O que é Domínio?</td>
                                     <td class="p-3 md:p-4 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
                                         É seu endereço (Ex: suaempresa.com.br). É o único custo fixo que pode existir.<br>
-                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> Para cardápios, o domínio (.pages.dev) é grátis. Para sites institucionais, custa apenas R$ 40,00/ano (Registro.br).
+                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> Para cardápios, o domínio (.pages.dev) grátis. Para sites institucionais, custa apenas R$ 40,00/ano (Registro.br).
                                     </td>
                                 </tr>
                                 <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
@@ -792,13 +631,6 @@
                                     <td class="p-3 md:p-4 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
                                         Manter o software seguro. No WordPress, exige atualizações constantes de plugins e temas.<br>
                                         <span class="text-green-600 dark:text-green-400 font-bold block mt-1">Vantagem:</span> O Site Fácil não tem software para atualizar, eliminando custos de webmaster.
-                                    </td>
-                                </tr>
-                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
-                                    <td class="p-3 md:p-4 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">Diferença para WordPress?</td>
-                                    <td class="p-3 md:p-4 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
-                                        <strong>WordPress:</strong> Foco em sistemas complexos (lojas grandes, login), mas caro e lento.<br>
-                                        <strong>Site Fácil:</strong> Foco em performance, segurança e custo zero. Ideal para sites institucionais, portfólios e cardápios.
                                     </td>
                                 </tr>
                             </tbody>
@@ -823,26 +655,12 @@
             </button>
             <div class="prose dark:prose-invert max-w-none text-justify">
                 <h2 class="text-2xl font-bold text-primary mb-6 text-left">Termos de Uso do Site Fácil</h2>
-                <p class="text-sm text-gray-500 mb-4 text-left">Última Atualização: [11/12/2025]</p>
-                <p>Ao acessar e utilizar os serviços oferecidos pelo Site Fácil (doravante, "Serviço"), você ("Cliente") concorda em cumprir e estar vinculado aos seguintes Termos de Uso.</p>
-                
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">1. Objeto do Serviço</h3>
-                <p>O Site Fácil, gerenciado por Fernando de Castro Leonhardt, oferece serviços de desenvolvimento de sites estáticos (baseados em HTML, CSS e JavaScript) e consultoria técnica, com foco em soluções de baixo custo e alta performance, utilizando plataformas de hospedagem gratuitas (ex: GitHub Pages).</p>
-                
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">2. Propriedade Intelectual</h3>
-                <p>Todos os códigos-fonte HTML, CSS e JavaScript criados especificamente para o Cliente (o "Produto Final") serão de propriedade integral do Cliente após a quitação total dos serviços. O Cliente tem total liberdade para hospedar, modificar ou transferir o código. O Site Fácil reterá os direitos sobre metodologias de desenvolvimento e templates internos.</p>
-
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">3. Responsabilidades do Cliente</h3>
-                <p>a) Fornecer material (textos, imagens, logotipos) de forma clara e em tempo hábil para a conclusão do projeto.<br>
-                b) Garantir que todo o conteúdo fornecido não viole direitos autorais ou de terceiros.</p>
-
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">4. Hospedagem e Manutenção</h3>
-                <p>O Site Fácil recomenda e configura soluções de hospedagem gratuitas (ex: GitHub Pages e Cloudflare). O Cliente reconhece que:<br>
-                a) O Site Fácil não é responsável pela infraestrutura e manutenção contínua das plataformas de terceiros (GitHub, Cloudflare, registro de domínio, etc.).<br>
-                b) Como o site é estático, a manutenção é mínima. Qualquer alteração ou atualização após a entrega final será cobrada separadamente, mediante orçamento prévio.</p>
-
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">5. Garantia e Limitação de Responsabilidade</h3>
-                <p>O Site Fácil garante que o Produto Final será funcional e livre de bugs e não se responsabiliza por indisponibilidade de plataformas de terceiros (hospedagem, registro).</p>
+                <p class="text-sm text-gray-500 mb-4 text-left">Última Atualização: 11/12/2025</p>
+                <p>Ao contratar os serviços do Site Fácil, você concorda com a entrega de um site estático baseado em HTML/CSS Puro.</p>
+                <h3 class="text-lg font-bold mt-4 mb-2 text-left">Hospedagem</h3>
+                <p>O serviço inclui a configuração inicial em plataformas gratuitas (como GitHub Pages e Cloudflare). O Site Fácil não se responsabiliza por eventuais interrupções nessas plataformas terceiras.</p>
+                <h3 class="text-lg font-bold mt-4 mb-2 text-left">Domínio</h3>
+                <p>A compra e renovação anual do domínio (.com.br ou outros) são de responsabilidade total do cliente perante os órgãos competentes (Ex: Registro.br).</p>
             </div>
             <div class="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 text-center">
                 <button onclick="closeModalButton('terms-modal')" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-violet-700 transition">Fechar</button>
@@ -858,29 +676,10 @@
             </button>
             <div class="prose dark:prose-invert max-w-none text-justify">
                 <h2 class="text-2xl font-bold text-primary mb-6 text-left">Política de Privacidade do Site Fácil</h2>
-                <p class="text-sm text-gray-500 mb-4 text-left">Última Atualização: [11/12/2025]</p>
-                <p>Esta Política de Privacidade descreve como o Site Fácil (Fernando de Castro Leonhardt) coleta, utiliza, armazena e protege as informações de seus clientes e visitantes.</p>
-                
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">1. Coleta de Informações Pessoais</h3>
-                <p>O Site Fácil coleta informações de identificação pessoal apenas quando estritamente necessário para a prestação de serviços ou comunicação comercial. Isso inclui:<br>
-                a) Dados de Contato: Nome, e-mail e telefone, fornecidos pelo Cliente via formulários de contato ou comunicação direta (WhatsApp, e-mail).<br>
-                b) Dados de Projeto: Informações de negócio, logotipos e textos essenciais para o desenvolvimento do site.<br>
-                Não coletamos dados sensíveis, e não armazenamos dados financeiros.</p>
-
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">2. Uso das Informações Coletadas</h3>
-                <p>As informações são utilizadas exclusivamente para:<br>
-                a) Entrar em contato com o Cliente para discutir projetos e orçamentos.<br>
-                b) Executar os serviços de desenvolvimento e entrega do site.<br>
-                c) Enviar comunicações estritamente relacionadas ao projeto ou atualizações do serviço.</p>
-
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">3. Sites de Clientes (Terceiros)</h3>
-                <p>Se o site desenvolvido para o Cliente incluir recursos como formulários de contato ou links de pagamento (ex: WhatsApp), o Cliente é o responsável por determinar a política de privacidade e os termos de uso de seu próprio site, estando em conformidade com a LGPD. O Site Fácil não tem acesso aos dados que os visitantes enviam diretamente aos sites de seus clientes.</p>
-
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">4. Uso de Cookies e Dados de Navegação</h3>
-                <p>O Site Fácil não utiliza cookies de rastreamento invasivos. No entanto, o site pode usar serviços de terceiros (ex: Google Analytics, se ativado) que podem utilizar cookies para coleta de dados de forma anonimizada para análise de tráfego.</p>
-
-                <h3 class="text-lg font-bold mt-4 mb-2 text-left">5. Compartilhamento de Informações</h3>
-                <p>O Site Fácil não vende, aluga ou compartilha informações pessoais de clientes com terceiros, exceto quando exigido por lei. As informações são tratadas com a máxima confidencialidade.</p>
+                <p class="text-sm text-gray-500 mb-4 text-left">Última Atualização: 11/12/2025</p>
+                <p>A privacidade dos nossos clientes é prioridade. Ao entrar em contato via WhatsApp ou e-mail, seus dados serão utilizados exclusivamente para a prestação do serviço solicitado.</p>
+                <h3 class="text-lg font-bold mt-4 mb-2 text-left">Coleta de Dados</h3>
+                <p>Coletamos apenas informações básicas necessárias para o projeto (nome, contato, informações do negócio).</p>
             </div>
             <div class="mt-8 pt-4 border-t border-gray-200 dark:border-gray-700 text-center">
                 <button onclick="closeModalButton('privacy-modal')" class="bg-primary text-white px-6 py-2 rounded-lg hover:bg-violet-700 transition">Fechar</button>
@@ -888,7 +687,7 @@
         </div>
     </div>
 
-    <!-- Modal de Zoom para Imagem (NOVO) -->
+    <!-- Modal de Zoom para Imagem -->
     <div id="image-modal" class="modal fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/95 backdrop-blur-md hidden" onclick="closeImageModal()">
         <button class="absolute top-4 right-4 text-white hover:text-primary text-4xl z-10 p-2">
             <i class="fa-solid fa-times"></i>
@@ -900,64 +699,50 @@
 
     <!-- Scripts de Funcionalidade -->
     <script>
-        // Função de rolagem segura
         function scrollToCustos() {
             const section = document.getElementById('custos');
             if (section) {
-                const headerOffset = 80; // Compensação para o header fixo
+                const headerOffset = 80;
                 const elementPosition = section.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
             }
         }
 
-        // Lógica do Modo Escuro
         const themeToggleBtn = document.getElementById('theme-toggle');
         const htmlElement = document.documentElement;
-
-        // Verificar preferência salva ou do sistema
         if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             htmlElement.classList.add('dark');
         } else {
             htmlElement.classList.remove('dark');
         }
-
-        // Função de alternar
         themeToggleBtn.addEventListener('click', () => {
             htmlElement.classList.toggle('dark');
-            if (htmlElement.classList.contains('dark')) {
-                localStorage.theme = 'dark';
-            } else {
-                localStorage.theme = 'light';
-            }
+            localStorage.theme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
         });
 
-        // Lógica dos Modais de Texto
         function openModal(modalId) {
             const modal = document.getElementById(modalId);
-            modal.classList.remove('hidden');
-            setTimeout(() => { modal.classList.add('active'); }, 10);
-            document.body.style.overflow = 'hidden';
+            if (modal) {
+                modal.classList.remove('hidden');
+                setTimeout(() => { modal.classList.add('active'); }, 10);
+                document.body.style.overflow = 'hidden';
+            }
         }
 
         function closeModalButton(modalId) {
             const modal = document.getElementById(modalId);
-            modal.classList.remove('active');
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
-            document.body.style.overflow = 'auto';
-        }
-
-        function closeModal(modalId, event) {
-            if (event.target.id === modalId) {
-                closeModalButton(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                setTimeout(() => { modal.classList.add('hidden'); }, 300);
+                document.body.style.overflow = 'auto';
             }
         }
 
-        /* --- Lógica do Carrossel e Zoom (NOVO) --- */
+        function closeModal(modalId, event) {
+            if (event.target.id === modalId) closeModalButton(modalId);
+        }
+
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const indicators = document.querySelectorAll('#carousel-indicators button');
@@ -965,9 +750,7 @@
         function updateCarousel() {
             slides.forEach((slide, index) => {
                 slide.classList.remove('active');
-                if (index === currentSlideIndex) {
-                    slide.classList.add('active');
-                }
+                if (index === currentSlideIndex) slide.classList.add('active');
             });
             indicators.forEach((indicator, index) => {
                 indicator.classList.remove('bg-primary');
@@ -994,10 +777,9 @@
             updateCarousel();
         }
 
-        // Inicializar Carrossel
         updateCarousel();
+        setInterval(nextSlide, 8000);
 
-        // Modal de Zoom da Imagem
         function openImageModal() {
             const activeSlide = document.querySelector('.carousel-slide.active img');
             if (activeSlide) {
@@ -1012,9 +794,11 @@
 
         function closeImageModal() {
             const modal = document.getElementById('image-modal');
-            modal.classList.remove('active');
-            setTimeout(() => { modal.classList.add('hidden'); }, 300);
-            document.body.style.overflow = 'auto';
+            if (modal) {
+                modal.classList.remove('active');
+                setTimeout(() => { modal.classList.add('hidden'); }, 300);
+                document.body.style.overflow = 'auto';
+            }
         }
     </script>
 </body>
