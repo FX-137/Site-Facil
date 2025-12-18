@@ -281,7 +281,7 @@
                     <h2 class="text-3xl md:text-5xl font-bold mb-6 text-primary">Economia a Longo Prazo: O Impacto no seu Bolso</h2>
                     <p class="text-gray-400 mb-12 text-lg md:text-xl">Compare quanto você deixa na mesa ao longo das décadas.</p>
                     
-                    <div class="overflow-x-auto rounded-2xl shadow-2xl border border-gray-800 bg-gray-900/50">
+                    <div class="overflow-x-auto rounded-xl shadow-2xl border border-gray-800 bg-gray-900/50">
                         <table class="w-full text-center border-collapse text-base md:text-xl">
                             <thead>
                                 <tr class="border-b border-gray-800 bg-gray-900 text-gray-300">
@@ -524,7 +524,6 @@
         </div>
     </footer>
 
-    <!-- Modais (Mantidos com a estrutura anterior, mas garantindo que o texto interno siga a escala de tamanho) -->
     <!-- Modal Guia Rápido -->
     <div id="guide-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden" onclick="closeModal('guide-modal', event)">
         <div class="modal-content bg-white dark:bg-darker w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl relative px-6 pb-6 pt-16 md:p-12">
@@ -532,79 +531,151 @@
                 <i class="fa-solid fa-times"></i>
             </button>
             <div class="prose dark:prose-invert max-w-none">
-                <div class="mb-10 border-b border-gray-200 dark:border-gray-800 pb-8">
-                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6 text-center md:text-left flex items-center gap-4">
-                        <i class="fa-solid fa-book-open"></i> Guia Rápido
+                <!-- Cabeçalho do Guia -->
+                <div class="mb-8 border-b border-gray-200 dark:border-gray-800 pb-6">
+                    <h2 class="text-2xl md:text-3xl font-bold text-primary mb-4 text-center md:text-left flex items-center gap-3">
+                        <i class="fa-solid fa-book-open"></i> Guia Rápido: Por que Nossos Sites Eliminam as Mensalidades
                     </h2>
-                    <p class="text-gray-600 dark:text-gray-300 text-justify text-lg md:text-xl leading-relaxed">
-                        Este guia foi feito para quem não é técnico. Explicamos de forma simples os termos essenciais para que você saiba exatamente o que está contratando.
+                    <p class="text-gray-600 dark:text-gray-300 text-justify text-base md:text-lg leading-relaxed">
+                        Este guia foi feito para quem não é técnico. Explicamos de forma simples os termos essenciais para que você saiba exatamente o que está contratando e como o modelo <strong>Site Fácil</strong> garante que você tenha um <strong>custo operacional anual próximo a zero</strong>.
                     </p>
                 </div>
 
-                <div class="mb-12">
-                    <h3 class="text-2xl font-bold mb-6 flex items-center gap-3 text-gray-800 dark:text-gray-100">
-                        <i class="fa-solid fa-tools text-primary"></i> O Trabalho de Criar um Site
+                <!-- Seção 1: O Trabalho -->
+                <div class="mb-10">
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 flex items-center gap-2 text-gray-800 dark:text-gray-100">
+                        <i class="fa-solid fa-tools text-primary"></i> O Trabalho de Criar um Site: O Que Você Está Contratando?
                     </h3>
-                    <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 text-justify leading-relaxed">
-                        A criação de um site envolve a transformação de uma ideia em um produto digital funcional.
+                    <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4 text-justify leading-relaxed">
+                        A criação de um site envolve a transformação de uma ideia em um produto digital funcional. Nosso trabalho foca em eliminar a complexidade para garantir seu baixo custo final.
                     </p>
                     
-                    <div class="space-y-8 pl-6 border-l-4 border-primary/20 ml-2">
+                    <div class="space-y-6 pl-4 border-l-4 border-primary/20 ml-2">
                         <div>
-                            <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2">1. O Rascunho e Design</h4>
-                            <p class="text-base md:text-lg text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
-                                Definimos a aparência do seu site, o fluxo de navegação e as cores.
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-1 text-lg">1. O Rascunho e Design</h4>
+                            <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
+                                Definimos a aparência do seu site, o fluxo de navegação e as cores, garantindo que ele transmita credibilidade e seja fácil de usar em qualquer tela (computador ou celular).
                             </p>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-4">2. A Construção (Codificação)</h4>
-                            <div class="grid md:grid-cols-2 gap-6">
-                                <div class="bg-red-50 dark:bg-red-900/10 p-6 rounded-2xl border border-red-100 dark:border-red-900/30">
-                                    <p class="font-bold text-red-600 dark:text-red-400 text-lg mb-2"><i class="fa-solid fa-xmark mr-2"></i> WordPress</p>
-                                    <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
-                                        Complexo e exige manutenção constante.
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-2 text-lg">2. A Construção (Codificação) <span class="text-xs font-normal text-gray-500">- Onde a mágica acontece</span></h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-red-50 dark:bg-red-900/10 p-5 rounded-xl border border-red-100 dark:border-red-900/30">
+                                    <p class="font-bold text-red-600 dark:text-red-400 text-base mb-2"><i class="fa-solid fa-xmark mr-1"></i> Trabalho Comum (WordPress)</p>
+                                    <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
+                                        Envolve instalar um sistema complexo (CMS), conectar Banco de Dados e configurar dezenas de plugins. Gera alta complexidade e necessidade constante de manutenção.
                                     </p>
                                 </div>
-                                <div class="bg-green-50 dark:bg-green-900/10 p-6 rounded-2xl border border-green-100 dark:border-green-900/30">
-                                    <p class="font-bold text-green-600 dark:text-green-400 text-lg mb-2"><i class="fa-solid fa-check mr-2"></i> HTML Puro</p>
-                                    <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
-                                        Rápido, limpo e seguro. Sem surpresas.
+                                <div class="bg-green-50 dark:bg-green-900/10 p-5 rounded-xl border border-green-100 dark:border-green-900/30">
+                                    <p class="font-bold text-green-600 dark:text-green-400 text-base mb-2"><i class="fa-solid fa-check mr-1"></i> Trabalho Site Fácil (HTML Puro)</p>
+                                    <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
+                                        Construímos o site diretamente no código. É mais rápido, limpo e seguro. Eliminamos softwares extras e banco de dados. O site não "envelhece".
                                     </p>
                                 </div>
                             </div>
                         </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-1 text-lg">3. Publicação (Deploy)</h4>
+                            <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 text-justify leading-relaxed">
+                                É o processo final de colocar o site no ar. Graças à infraestrutura da Cloudflare, fazemos isso de forma instantânea e totalmente gratuita.
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Seção 2: FAQ Tabela -->
+                <div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-6 flex items-center gap-2 text-gray-800 dark:text-gray-100">
+                        <i class="fa-solid fa-circle-question text-primary"></i> FAQ: Os Termos Essenciais do Mundo Digital
+                    </h3>
+                    
+                    <div class="rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                        <table class="w-full text-left text-sm md:text-base">
+                            <thead class="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 hidden md:table-header-group">
+                                <tr>
+                                    <th class="p-5 w-1/4 border-b dark:border-gray-700">Tópico</th>
+                                    <th class="p-5 border-b dark:border-gray-700">Explicação Simples e Vantagem do Site Fácil</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-darker block md:table-row-group">
+                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
+                                    <td class="p-4 md:p-5 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">O que é um Site Estático?</td>
+                                    <td class="p-4 md:p-5 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
+                                        É um site <strong>pré-construído</strong> (como uma foto ou um folheto digital) que não precisa consultar banco de dados toda vez que alguém visita.<br>
+                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-2">Vantagem:</span> É o tipo de site mais rápido e seguro que existe.
+                                    </td>
+                                </tr>
+                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
+                                    <td class="p-4 md:p-5 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">O que é Hospedagem?</td>
+                                    <td class="p-4 md:p-5 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
+                                        É o "aluguel" do computador onde seu site mora. Sites estáticos exigem quase zero energia.<br>
+                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-2">Vantagem:</span> Usamos infraestrutura mundial (Cloudflare/GitHub) gratuita e ilimitada para esse tipo de projeto.
+                                    </td>
+                                </tr>
+                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
+                                    <td class="p-4 md:p-5 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">O que é Domínio?</td>
+                                    <td class="p-4 md:p-5 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
+                                        É seu endereço (Ex: suaempresa.com.br). É o único custo fixo que pode existir.<br>
+                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-2">Vantagem:</span> Para cardápios, o domínio (.pages.dev) grátis. Para sites institucionais, custa apenas R$ 40,00/ano (Registro.br).
+                                    </td>
+                                </tr>
+                                <tr class="block md:table-row border-b border-gray-200 dark:border-gray-700 last:border-0 md:border-none">
+                                    <td class="p-4 md:p-5 font-bold text-primary block md:table-cell w-full md:w-1/4 bg-gray-50 dark:bg-gray-900/50 md:bg-transparent md:dark:bg-transparent">O que é Manutenção?</td>
+                                    <td class="p-4 md:p-5 text-gray-600 dark:text-gray-400 text-justify block md:table-cell w-full md:w-auto">
+                                        Manter o software seguro. No WordPress, exige atualizações constantes de plugins e temas.<br>
+                                        <span class="text-green-600 dark:text-green-400 font-bold block mt-2">Vantagem:</span> O Site Fácil não tem software para atualizar, eliminando custos de webmaster.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
-            <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
+            <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center sticky bottom-0 bg-white dark:bg-darker pb-4">
                 <button onclick="closeModalButton('guide-modal')" class="bg-primary hover:bg-violet-700 text-white font-bold py-4 px-12 rounded-full transition-all shadow-lg text-lg">
-                    Fechar Guia
+                    Entendi, Voltar para o Site
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Restante dos Modais (Termos, Privacidade, Imagem) seguem a mesma lógica estrutural -->
+    <!-- Modal Termos de Uso -->
     <div id="terms-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden" onclick="closeModal('terms-modal', event)">
         <div class="modal-content bg-white dark:bg-darker w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl relative p-10 md:p-14">
             <button onclick="closeModalButton('terms-modal')" class="absolute top-6 right-6 text-gray-400 hover:text-red-500 text-3xl z-10 p-2">
                 <i class="fa-solid fa-times"></i>
             </button>
-            <div class="prose dark:prose-invert max-w-none text-justify text-lg leading-relaxed">
-                <h2 class="text-3xl font-bold text-primary mb-8 text-left">Termos de Uso</h2>
-                <p>Ao contratar os serviços do Site Fácil, você concorda com a entrega de um site estático baseado em HTML/CSS Puro.</p>
+            <div class="prose dark:prose-invert max-w-none text-justify text-base md:text-xl leading-relaxed">
+                <h2 class="text-3xl font-bold text-primary mb-8 text-left">Termos de Uso do Site Fácil</h2>
+                <p class="text-sm text-gray-500 mb-6 text-left">Última Atualização: 11/12/2025</p>
+                <p class="mb-6">Ao contratar os serviços do Site Fácil, você concorda com a entrega de um site estático baseado em HTML/CSS Puro.</p>
+                <h3 class="text-xl md:text-2xl font-bold mt-8 mb-4 text-left">Hospedagem</h3>
+                <p class="mb-6">O serviço inclui a configuração inicial em plataformas gratuitas (como GitHub Pages e Cloudflare). O Site Fácil não se responsabiliza por eventuais interrupções nessas plataformas terceiras.</p>
+                <h3 class="text-xl md:text-2xl font-bold mt-8 mb-4 text-left">Domínio</h3>
+                <p class="mb-6">A compra e renovação anual do domínio (.com.br ou outros) são de responsabilidade total do cliente perante os órgãos competentes (Ex: Registro.br).</p>
+            </div>
+            <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
+                <button onclick="closeModalButton('terms-modal')" class="bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-violet-700 transition text-lg">Fechar</button>
             </div>
         </div>
     </div>
 
+    <!-- Modal Política de Privacidade -->
     <div id="privacy-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden" onclick="closeModal('privacy-modal', event)">
         <div class="modal-content bg-white dark:bg-darker w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl relative p-10 md:p-14">
             <button onclick="closeModalButton('privacy-modal')" class="absolute top-6 right-6 text-gray-400 hover:text-red-500 text-3xl z-10 p-2">
                 <i class="fa-solid fa-times"></i>
             </button>
-            <div class="prose dark:prose-invert max-w-none text-justify text-lg leading-relaxed">
-                <h2 class="text-3xl font-bold text-primary mb-8 text-left">Política de Privacidade</h2>
-                <p>A privacidade dos nossos clientes é prioridade.</p>
+            <div class="prose dark:prose-invert max-w-none text-justify text-base md:text-xl leading-relaxed">
+                <h2 class="text-3xl font-bold text-primary mb-8 text-left">Política de Privacidade do Site Fácil</h2>
+                <p class="text-sm text-gray-500 mb-6 text-left">Última Atualização: 11/12/2025</p>
+                <p class="mb-6">A privacidade dos nossos clientes é prioridade. Ao entrar em contato via WhatsApp ou e-mail, seus dados serão utilizados exclusivamente para a prestação do serviço solicitado.</p>
+                <h3 class="text-xl md:text-2xl font-bold mt-8 mb-4 text-left">Coleta de Dados</h3>
+                <p class="mb-6">Coletamos apenas informações básicas necessárias para o projeto (nome, contato, informações do negócio).</p>
+            </div>
+            <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center">
+                <button onclick="closeModalButton('privacy-modal')" class="bg-primary text-white px-10 py-4 rounded-full font-bold hover:bg-violet-700 transition text-lg">Fechar</button>
             </div>
         </div>
     </div>
