@@ -34,11 +34,13 @@
                     },
                     keyframes: {
                         'slide-right': { '0%, 100%': { transform: 'translateX(0)' }, '50%': { transform: 'translateX(10px)' } },
-                        'pulse-bright': { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.85' } }
+                        'pulse-bright': { '0%, 100%': { opacity: '1' }, '50%': { opacity: '0.85' } },
+                        'slide-up': { '0%': { transform: 'translateY(100%)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } }
                     },
                     animation: {
                         'slide-right': 'slide-right 1.5s ease-in-out infinite',
                         'pulse-bright': 'pulse-bright 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'slide-up': 'slide-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards'
                     }
                 }
             }
@@ -540,6 +542,28 @@
         </div>
     </footer>
 
+    <!-- Aviso de Cookies -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[100] p-4 md:p-6 translate-y-full opacity-0 pointer-events-none transition-all duration-500">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-white/80 dark:bg-dark/80 backdrop-blur-xl border border-gray-200 dark:border-gray-800 p-6 md:p-8 rounded-[2rem] shadow-2xl flex flex-col md:flex-row items-center gap-6">
+                <div class="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center animate-bounce-slow">
+                    <i class="fa-solid fa-cookie-bite text-3xl text-primary"></i>
+                </div>
+                <div class="flex-grow text-center md:text-left">
+                    <h4 class="text-lg md:text-xl font-bold mb-1">Privacidade e Cookies</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base leading-relaxed">
+                        Nós usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa <button onclick="openModal('privacy-modal')" class="text-primary font-bold hover:underline">Política de Privacidade</button>.
+                    </p>
+                </div>
+                <div class="flex-shrink-0 w-full md:w-auto">
+                    <button onclick="acceptCookies()" class="w-full bg-primary hover:bg-violet-600 text-white font-bold py-4 px-10 rounded-2xl transition-all shadow-lg active:scale-95">
+                        Aceitar e Continuar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Modal Guia Rápido -->
     <div id="guide-modal" class="modal fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden" onclick="closeModal('guide-modal', event)">
         <div class="modal-content bg-white dark:bg-darker w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl relative px-6 pb-6 pt-16 md:p-12">
@@ -708,6 +732,26 @@
 
     <!-- Scripts de Funcionalidade -->
     <script>
+        // Lógica de Cookies
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('sitefacil-cookies');
+            if (!consent) {
+                const banner = document.getElementById('cookie-banner');
+                banner.classList.remove('translate-y-full', 'opacity-0', 'pointer-events-none');
+                banner.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('sitefacil-cookies', 'accepted');
+            const banner = document.getElementById('cookie-banner');
+            banner.classList.add('translate-y-full', 'opacity-0', 'pointer-events-none');
+            banner.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+        }
+
+        // Executar verificação após carregar a página
+        window.addEventListener('DOMContentLoaded', checkCookieConsent);
+
         function scrollToCustos() {
             const section = document.getElementById('custos');
             if (section) {
